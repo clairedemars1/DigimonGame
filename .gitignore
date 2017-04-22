@@ -1,0 +1,6 @@
+
+tracker/frames/*
+
+tracker/run
+
+tracker/*.o

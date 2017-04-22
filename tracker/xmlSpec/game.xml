@@ -1,0 +1,131 @@
+<?xml version = "1.0"?>
+<GameData>
+	
+<!--Misc-->
+<screenTitle> Claire DeMars: Digital Champions </screenTitle>
+<title> Claire DeMars: Digital Champions </title>
+<!--
+<maxStringSize>50</maxStringSize>
+-->
+<frameCapOn>true</frameCapOn>
+<maxFrameRate>60</maxFrameRate>
+<period>17</period>
+<maxFrames>525</maxFrames> <!--max num of frames in animation-->
+<numFramesForAvg>200</numFramesForAvg>
+<username>cmdemar</username>
+
+<view> <!--given-->
+  <width>854</width> 
+  <height>480</height>
+</view>
+
+<font name="font">
+  <file>fonts/arial.ttf</file>
+  <size>24</size>
+  <red>145</red>
+  <green>111</green>
+  <blue>10</blue>
+  <alpha>0</alpha>
+</font>
+
+<hud>
+	<width>200</width>
+	<height>130</height>
+	<x>30</x>
+	<y>30</y>
+</hud>
+
+
+<!--backgrounds-->
+<world>
+  <width>5000</width>
+  <height>480</height>
+</world>
+
+<back0>
+  <file>images/back0.xcf</file>
+  <factor>1</factor>
+  <transparency>false</transparency>
+</back0>
+
+<back1>
+  <file>images/back1.xcf</file>
+  <factor>1</factor>
+  <transparency>false</transparency>
+</back1>
+
+<back2>
+  <file>images/back2.xcf</file>
+  <factor>2</factor>
+  <transparency>false</transparency>
+</back2>
+
+<back3>
+  <file>images/back3.xcf</file>
+  <factor>3</factor>
+  <transparency>false</transparency>
+</back3>
+
+<back4>
+  <file>images/back4.xcf</file>
+  <factor>4</factor>
+  <transparency>false</transparency>
+</back4>
+
+<end>
+  <file>images/end.jpg</file>
+  <factor>4</factor>
+  <transparency>false</transparency>
+</end>
+
+<!-- sprites -->
+<numOfFallingThings>300</numOfFallingThings>
+<agumon>
+  <file>images/agumon.png</file>
+  <startLoc x="600" y="350"/>
+  <frames>2</frames>
+  <frameInterval>300</frameInterval>
+  <speedX>300</speedX>
+  <speedY>300</speedY>
+  <transparency>true</transparency>
+</agumon>
+
+<digivolve>
+  <file>images/digivolve.png</file>
+  <startLoc x="450" y="350"/>
+  <frames>2</frames>
+  <frameInterval>300</frameInterval>
+  <speedX>200</speedX>
+  <speedY>0</speedY>
+  <transparency>true</transparency>
+</digivolve>
+
+<metal_greymon>
+  <file>images/metal_greymon.png</file>
+  <startLoc x="300" y="200"/>
+  <frames>3</frames>
+  <frameInterval>200</frameInterval>
+  <speedX>200</speedX>
+  <speedY>0</speedY>
+  <transparency>true</transparency>
+</metal_greymon>
+
+<patamon>
+  <file>images/patamon.png</file>
+  <startLoc x="600" y="480"/>
+  <frames>3</frames>
+  <frameInterval>250</frameInterval>
+  <speedX>0</speedX>
+  <speedY>200</speedY>
+  <transparency>true</transparency>
+</patamon>
+
+<logo>
+  <file>images/logo.png</file>
+  <startLoc x="250" y="160"/>
+  <speedX>0</speedX>
+  <speedY>0</speedY>
+  <transparency>true</transparency>
+</logo>
+
+</GameData>

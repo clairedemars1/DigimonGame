@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="proj_4"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="proj_4">
+				<Option output="/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/proj_4" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/include/c++/4.8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.8"/>
+					<Add directory="/usr/include/c++/4.8/backward"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/Makefile&quot;  VERBOSE=1 proj_4"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="proj_4/fast">
+				<Option output="/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/proj_4" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/include/c++/4.8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.8"/>
+					<Add directory="/usr/include/c++/4.8/backward"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/Makefile&quot;  VERBOSE=1 proj_4/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/old_engine.cpp">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/background.cpp">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/background.h">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/clock.cpp">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/clock.h">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/drawable.h">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/engine.cpp">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/engine.h">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/frameFactory.cpp">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/frameFactory.h">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/frameGenerator.cpp">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/frameGenerator.h">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/gamedata.cpp">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/gamedata.h">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/hud.cpp">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/hud.h">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/ioMod.cpp">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/ioMod.h">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/main.cpp">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/multisprite.cpp">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/multisprite.h">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/parseXML.cpp">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/parseXML.h">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/player.cpp">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/player.h">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/randomguy.cpp">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/randomguy.h">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/renderContext.cpp">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/renderContext.h">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/sprite.cpp">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/sprite.h">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/textureWrapper.cpp">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/textureWrapper.h">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/twowaymultisprite.cpp">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/twowaymultisprite.h">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/unpack.cpp">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/unpack.h">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/vector2f.cpp">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/vector2f.h">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/viewport.cpp">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/tracker/viewport.h">
+			<Option target="proj_4"/>
+		</Unit>
+		<Unit filename="/home/cmdemar/Documents/6160_Games/proj_4/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

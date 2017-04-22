@@ -1,0 +1,7 @@
+
+how to jump:
+hold longer -> jump higher
+check not only if j key is being pressed but if had been in the prev frame, up to 4, 
+start jump arch as soon as it's pressed, but increase y vel each time
+
+if that's jumpy, ignore gravity while holding j key (up to 4 frames)

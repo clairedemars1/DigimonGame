@@ -1,4 +1,19 @@
 
+############
+priorities
+- enable jumping, check that he cannot fly
+- enable aswd only if he's in y range, or at the top and moving down
+- put obstacles (bushes or taller rocks), with collision detection so velocity -> 0 if he hits them
+- add patrolling bad guys, if he lands near them they chase him
+- if they catch him he explodes
+- bullets: if they collide with bad guys they explode
+- god mode
+- reset
+- music and noise on explosion
+
+
+
+
 ############### 
 jumping
 
@@ -16,3 +31,8 @@ decision:
 	- i will not have levels, the only level is the ground
 	if i did have levels, then couldn't check y to see if was jumping (to see if could use left and right keys), so i'd need "is_jumping" bool. i will use that for extensibility.
 	- uncertainty: don't i need to limit how long they can hold down the jump key for, else they could fly away
+
+
+
+
+

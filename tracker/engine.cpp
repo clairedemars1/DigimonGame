@@ -89,14 +89,16 @@ void Engine::draw() const {
   SDL_RenderPresent(renderer);
 }
 
-void Engine::update(Uint32 ticks,  const std::array<char, 2> &directions) {
+//~ void Engine::update(Uint32 ticks,  const std::array<char, 2> &directions) {
+void Engine::update(Uint32 ticks) {
 	
   if ( makeVideo ) frameGenerator.makeFrame();
 
   for (auto& b: backgrounds) b.update();
 
   for(auto* s : fallers) s->update(ticks);
-  player.update(ticks, directions); 
+  //~ player.update(ticks, directions); 
+  player.update(ticks); 
   hud.update();
   
   viewport.update(); // always update viewport last
@@ -107,15 +109,17 @@ void Engine::play() {
   const Uint8* keystate;
   bool done = false;
   Uint32 ticks = clock.getElapsedTicks();
-  std::array<char, 2> directions = {0, 0}; // horiz, vert. can be -1, 0 or 1
+  //~ std::array<char, 2> directions = {0, 0}; // horiz, vert. can be -1, 0 or 1
 
   /// event loop
   while ( !done ) {
+	
+	keystate = SDL_GetKeyboardState(NULL); // define here in case while doesn't run
 
 	/// while a key has been released or pressed, and we haven't attended to it yet
     while ( SDL_PollEvent(&event) ) {
 		
-      keystate = SDL_GetKeyboardState(NULL);
+      //~ keystate = SDL_GetKeyboardState(NULL);
       if (event.type ==  SDL_QUIT) { done = true; break; }
       
       if(event.type == SDL_KEYDOWN) {		  
@@ -145,19 +149,19 @@ void Engine::play() {
     } // end while
     
 
-	directions = {0, 0}; // horiz, vert. Each can be -1 0 or 1
-	if ( keystate[SDL_SCANCODE_A] ) {
-	  directions[0]--; // left
-	}
-	if ( keystate[SDL_SCANCODE_D]) {
-	  directions[0]++; // right
-	}
-	if ( keystate[SDL_SCANCODE_S] ) {
-	  directions[1]--; // down 
-	}
-	if ( keystate[SDL_SCANCODE_W] ) {
-	  directions[1]++; // up
-	}
+	//~ directions = {0, 0}; // horiz, vert. Each can be -1 0 or 1
+	//~ if ( keystate[SDL_SCANCODE_A] ) {
+	  //~ directions[0]--; // left
+	//~ }
+	//~ if ( keystate[SDL_SCANCODE_D]) {
+	  //~ directions[0]++; // right
+	//~ }
+	//~ if ( keystate[SDL_SCANCODE_S] ) {
+	  //~ directions[1]--; // down 
+	//~ }
+	//~ if ( keystate[SDL_SCANCODE_W] ) {
+	  //~ directions[1]++; // up
+	//~ }
 	
 	// redraw frame & update sprite positions for the next draw
     ticks = clock.getElapsedTicks();
@@ -165,7 +169,8 @@ void Engine::play() {
 
       clock.incrFrame();
       draw();
-      update(ticks, directions);
+      //~ update(ticks, directions);
+      update(ticks);
     }
   } /// end event loop
 }

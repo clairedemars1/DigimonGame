@@ -2,15 +2,15 @@ Name: Claire DeMars
 
 Clemson Email Address: cmdemar@clemson.edu
 
-Project no: 4
+Project no: 5
 
-Project due date: April 4, 2017
+Project due date: April 30, 2017
 
-Project description: add Painter's alg, HUD, and character movement
+Project description: Make it a full game
 
-The easiest part of this project: the hud
+The easiest part of this project: 
 
-Problems that I had in completing this project: the lab computers didn't handle SDL key_down events correctly 
+Problems that I had in completing this project: 
 	
 
 Notes:
@@ -20,15 +20,19 @@ Notes:
 	Not sure what to do for AI yet. 
 	Sprite source - online with alterations (blurring, etc).
 	Music - digimon theme song and ca-ching noises for getting points.
+	
+ - notes on design:
+	+ I moved key detection for movement (asdw) into player for better encapsulation
 
  - image sources and work I did altering them:
  
      backgrounds - http://dr-roflcopter.deviantart.com/art/Digimon-Adventure-Tri-Train-Wallpaper-523992542
-     removed 5 sets of leaves, bus, bushes, and electrical towers. For edges matching, could not just flip - b/c of direction clouds were blowing - so duplicated 3 times and adjusted clouds on edges. Separated into 5 layers
+     removed 5 sets of leaves, bus, bushes, and electrical towers. For edges matching, could not just flip - b/c of direction clouds were blowing - so duplicated 3 times and adjusted clouds on edges. Separated into 5 layers. Adjusted the layers' heights.
     
      agumon - http://wikimon.net/Wikimon:Community_Portal_Archive/1
      Guassian blurred edges to match Gesomon
      
      patamon - http://withthewill.net/threads/10654-The-New-Digimon-Background-Dawn-Dusk-Lost-Evo-SXW-Sprite-Topic!-*NO-SPRITE-REQUESTS!*
+    
      
    

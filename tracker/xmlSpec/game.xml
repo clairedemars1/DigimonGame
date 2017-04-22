@@ -80,6 +80,9 @@
 
 <!-- sprites -->
 <numOfFallingThings>300</numOfFallingThings>
+
+
+<!--
 <agumon>
   <file>images/agumon.png</file>
   <startLoc x="600" y="350"/>
@@ -89,6 +92,17 @@
   <speedY>300</speedY>
   <transparency>true</transparency>
 </agumon>
+-->
+<player>
+  <gravity>3</gravity>
+  <file>images/agumon.png</file>
+  <startLoc x="600" y="350"/>
+  <frames>2</frames>
+  <frameInterval>300</frameInterval>
+  <speedX>300</speedX>
+  <speedY>300</speedY>
+  <transparency>true</transparency>
+</player>
 
 <digivolve>
   <file>images/digivolve.png</file>

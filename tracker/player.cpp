@@ -5,18 +5,22 @@
 #include "engine.h"
 #include "player.h"
 
+
+
 //~ void Player::update(Uint32 ticks, const std::array<char, 2> &directions){
 void Player::update(Uint32 ticks){
 	std::array<char, 2> directions;
 	const Uint8* keystate; 
+	
 	advanceFrame(ticks);
 	
 	// jumping
 	
 	
 	
+	
 	// asdw keys
-	keystate = SDL_GetKeyboardState(NULL); // define here in case while doesn't run
+	keystate = SDL_GetKeyboardState(NULL); 
 	directions = {0, 0}; // horiz, vert. Each can be -1 0 or 1
 	if ( keystate[SDL_SCANCODE_A] ) {
 	  directions[0]--; // left

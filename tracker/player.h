@@ -7,11 +7,25 @@
 class Player : public TwoWayMultiSprite{
 	
 public:
-	Player(const std::string& name): TwoWayMultiSprite(name) {}
-	Player(const Player& rhs): TwoWayMultiSprite(rhs){}
-	//~ void update(Uint32 ticks, const std::array<char, 2> &directions);
+	Player(): TwoWayMultiSprite("player"), 
+		is_jumping(false), 
+		gravity(Gamedata::getInstance().getXmlFloat("player/gravity"))
+		{}
+	Player(const Player& rhs): 
+		TwoWayMultiSprite(rhs),
+		is_jumping(false),
+		gravity(Gamedata::getInstance().getXmlFloat("player/gravity"))	
+		{}
+	Player(const std::string& name): 
+		TwoWayMultiSprite(name), 
+		is_jumping(false),
+		gravity(Gamedata::getInstance().getXmlFloat("player/gravity"))	
+		{}
 	void update(Uint32 ticks);
 
+private:
+	bool is_jumping;
+	float gravity;
 };
 
 #endif

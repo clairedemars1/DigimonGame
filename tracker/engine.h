@@ -35,7 +35,6 @@ private:
 
 
   void draw() const;
-  //~ void update(Uint32 ticks, const std::array<char, 2> &directions);
   void update(Uint32 ticks);
 
 };

@@ -120,12 +120,14 @@ void Engine::play() {
       keystate = SDL_GetKeyboardState(NULL);
       if (event.type ==  SDL_QUIT) { done = true; break; }
       
-      if(event.type == SDL_KEYDOWN) {		  
+      if(event.type == SDL_KEYDOWN) {	
+			// quit
 			if (keystate[SDL_SCANCODE_ESCAPE] || keystate[SDL_SCANCODE_Q]) {
 			  done = true;
 			  break;
 			}
 			
+			// pause
 			if ( keystate[SDL_SCANCODE_P] ) {
 			  if ( clock.isPaused() ) clock.unpause();
 			  else clock.pause();
@@ -134,6 +136,7 @@ void Engine::play() {
 				hud.show();
 			}
 			
+			// capture frames
 			if (keystate[SDL_SCANCODE_F4] && !makeVideo) {
 			  std::cout << "Initiating frame capture" << std::endl;
 			  makeVideo = true;
@@ -142,7 +145,18 @@ void Engine::play() {
 			  std::cout << "Terminating frame capture" << std::endl;
 			  makeVideo = false;
 			}
+			
+			//notify player: jump
+			if ( keystate[SDL_SCANCODE_J] ){
+				player.notify("j_key_down");
+			}
       } 
+      if (event.type == SDL_KEYUP) {
+		  //notify player: jump
+			if ( keystate[SDL_SCANCODE_J] ){
+				player.notify("j_key_up");
+			}
+	  }
 
     } // end while
     

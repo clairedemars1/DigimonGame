@@ -7,25 +7,22 @@
 class Player : public TwoWayMultiSprite{
 	
 public:
-	Player(): TwoWayMultiSprite("player"), 
-		is_jumping(false), 
-		gravity(Gamedata::getInstance().getXmlFloat("player/gravity"))
-		{}
-	Player(const Player& rhs): 
-		TwoWayMultiSprite(rhs),
-		is_jumping(false),
-		gravity(Gamedata::getInstance().getXmlFloat("player/gravity"))	
-		{}
-	Player(const std::string& name): 
-		TwoWayMultiSprite(name), 
-		is_jumping(false),
-		gravity(Gamedata::getInstance().getXmlFloat("player/gravity"))	
-		{}
+	Player();
+	Player(const Player& rhs);
+	Player(const std::string& name);
 	void update(Uint32 ticks);
+	void notify(std::string event);
 
 private:
+	int yLimit;
+	
 	bool is_jumping;
+	int y_before_jump;
 	float gravity;
+	int min_jump_vel_y;
+	int max_jump_vel_y;
+	bool j_key_down;
+	bool j_key_up; //stop adding height to the jump, ie stop starting the jump
 };
 
 #endif

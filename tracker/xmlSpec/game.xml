@@ -94,14 +94,18 @@
 </agumon>
 -->
 <player>
-  <gravity>3</gravity>
   <file>images/agumon.png</file>
-  <startLoc x="600" y="350"/>
+  <startLoc x="600" y="650"/>
   <frames>2</frames>
   <frameInterval>300</frameInterval>
   <speedX>300</speedX>
   <speedY>300</speedY>
+  <yLimit>550</yLimit>
   <transparency>true</transparency>
+  <!-- jumping info-->
+  <gravity>3</gravity>
+  <minJumpSpeedY>300</minJumpSpeedY>
+  <maxJumpSpeedY>300</maxJumpSpeedY>
 </player>
 
 <digivolve>

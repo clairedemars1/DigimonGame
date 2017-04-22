@@ -48,10 +48,10 @@ RM = /home/cmdemar/clion-2016.3.2/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cmdemar/Documents/6160_Games/proj_4
+CMAKE_SOURCE_DIR = /home/cmdemar/Documents/6160_Games/proj_5
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug
+CMAKE_BINARY_DIR = /home/cmdemar/Documents/6160_Games/proj_5/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/CMakeFiles /home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cmdemar/Documents/6160_Games/proj_5/cmake-build-debug/CMakeFiles /home/cmdemar/Documents/6160_Games/proj_5/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cmdemar/Documents/6160_Games/proj_4/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cmdemar/Documents/6160_Games/proj_5/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,44 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named proj_4
+# Target rules for targets named proj_5
 
 # Build rule for target.
-proj_4: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 proj_4
-.PHONY : proj_4
+proj_5: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 proj_5
+.PHONY : proj_5
 
 # fast build rule for target.
-proj_4/fast:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/build
-.PHONY : proj_4/fast
-
-old_engine.o: old_engine.cpp.o
-
-.PHONY : old_engine.o
-
-# target to build an object file
-old_engine.cpp.o:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/old_engine.cpp.o
-.PHONY : old_engine.cpp.o
-
-old_engine.i: old_engine.cpp.i
-
-.PHONY : old_engine.i
-
-# target to preprocess a source file
-old_engine.cpp.i:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/old_engine.cpp.i
-.PHONY : old_engine.cpp.i
-
-old_engine.s: old_engine.cpp.s
-
-.PHONY : old_engine.s
-
-# target to generate assembly for a file
-old_engine.cpp.s:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/old_engine.cpp.s
-.PHONY : old_engine.cpp.s
+proj_5/fast:
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/build
+.PHONY : proj_5/fast
 
 tracker/background.o: tracker/background.cpp.o
 
@@ -156,7 +129,7 @@ tracker/background.o: tracker/background.cpp.o
 
 # target to build an object file
 tracker/background.cpp.o:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/background.cpp.o
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/background.cpp.o
 .PHONY : tracker/background.cpp.o
 
 tracker/background.i: tracker/background.cpp.i
@@ -165,7 +138,7 @@ tracker/background.i: tracker/background.cpp.i
 
 # target to preprocess a source file
 tracker/background.cpp.i:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/background.cpp.i
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/background.cpp.i
 .PHONY : tracker/background.cpp.i
 
 tracker/background.s: tracker/background.cpp.s
@@ -174,7 +147,7 @@ tracker/background.s: tracker/background.cpp.s
 
 # target to generate assembly for a file
 tracker/background.cpp.s:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/background.cpp.s
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/background.cpp.s
 .PHONY : tracker/background.cpp.s
 
 tracker/clock.o: tracker/clock.cpp.o
@@ -183,7 +156,7 @@ tracker/clock.o: tracker/clock.cpp.o
 
 # target to build an object file
 tracker/clock.cpp.o:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/clock.cpp.o
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/clock.cpp.o
 .PHONY : tracker/clock.cpp.o
 
 tracker/clock.i: tracker/clock.cpp.i
@@ -192,7 +165,7 @@ tracker/clock.i: tracker/clock.cpp.i
 
 # target to preprocess a source file
 tracker/clock.cpp.i:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/clock.cpp.i
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/clock.cpp.i
 .PHONY : tracker/clock.cpp.i
 
 tracker/clock.s: tracker/clock.cpp.s
@@ -201,8 +174,35 @@ tracker/clock.s: tracker/clock.cpp.s
 
 # target to generate assembly for a file
 tracker/clock.cpp.s:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/clock.cpp.s
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/clock.cpp.s
 .PHONY : tracker/clock.cpp.s
+
+tracker/drawable.o: tracker/drawable.cpp.o
+
+.PHONY : tracker/drawable.o
+
+# target to build an object file
+tracker/drawable.cpp.o:
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/drawable.cpp.o
+.PHONY : tracker/drawable.cpp.o
+
+tracker/drawable.i: tracker/drawable.cpp.i
+
+.PHONY : tracker/drawable.i
+
+# target to preprocess a source file
+tracker/drawable.cpp.i:
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/drawable.cpp.i
+.PHONY : tracker/drawable.cpp.i
+
+tracker/drawable.s: tracker/drawable.cpp.s
+
+.PHONY : tracker/drawable.s
+
+# target to generate assembly for a file
+tracker/drawable.cpp.s:
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/drawable.cpp.s
+.PHONY : tracker/drawable.cpp.s
 
 tracker/engine.o: tracker/engine.cpp.o
 
@@ -210,7 +210,7 @@ tracker/engine.o: tracker/engine.cpp.o
 
 # target to build an object file
 tracker/engine.cpp.o:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/engine.cpp.o
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/engine.cpp.o
 .PHONY : tracker/engine.cpp.o
 
 tracker/engine.i: tracker/engine.cpp.i
@@ -219,7 +219,7 @@ tracker/engine.i: tracker/engine.cpp.i
 
 # target to preprocess a source file
 tracker/engine.cpp.i:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/engine.cpp.i
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/engine.cpp.i
 .PHONY : tracker/engine.cpp.i
 
 tracker/engine.s: tracker/engine.cpp.s
@@ -228,8 +228,35 @@ tracker/engine.s: tracker/engine.cpp.s
 
 # target to generate assembly for a file
 tracker/engine.cpp.s:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/engine.cpp.s
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/engine.cpp.s
 .PHONY : tracker/engine.cpp.s
+
+tracker/faller.o: tracker/faller.cpp.o
+
+.PHONY : tracker/faller.o
+
+# target to build an object file
+tracker/faller.cpp.o:
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/faller.cpp.o
+.PHONY : tracker/faller.cpp.o
+
+tracker/faller.i: tracker/faller.cpp.i
+
+.PHONY : tracker/faller.i
+
+# target to preprocess a source file
+tracker/faller.cpp.i:
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/faller.cpp.i
+.PHONY : tracker/faller.cpp.i
+
+tracker/faller.s: tracker/faller.cpp.s
+
+.PHONY : tracker/faller.s
+
+# target to generate assembly for a file
+tracker/faller.cpp.s:
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/faller.cpp.s
+.PHONY : tracker/faller.cpp.s
 
 tracker/frameFactory.o: tracker/frameFactory.cpp.o
 
@@ -237,7 +264,7 @@ tracker/frameFactory.o: tracker/frameFactory.cpp.o
 
 # target to build an object file
 tracker/frameFactory.cpp.o:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/frameFactory.cpp.o
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/frameFactory.cpp.o
 .PHONY : tracker/frameFactory.cpp.o
 
 tracker/frameFactory.i: tracker/frameFactory.cpp.i
@@ -246,7 +273,7 @@ tracker/frameFactory.i: tracker/frameFactory.cpp.i
 
 # target to preprocess a source file
 tracker/frameFactory.cpp.i:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/frameFactory.cpp.i
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/frameFactory.cpp.i
 .PHONY : tracker/frameFactory.cpp.i
 
 tracker/frameFactory.s: tracker/frameFactory.cpp.s
@@ -255,7 +282,7 @@ tracker/frameFactory.s: tracker/frameFactory.cpp.s
 
 # target to generate assembly for a file
 tracker/frameFactory.cpp.s:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/frameFactory.cpp.s
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/frameFactory.cpp.s
 .PHONY : tracker/frameFactory.cpp.s
 
 tracker/frameGenerator.o: tracker/frameGenerator.cpp.o
@@ -264,7 +291,7 @@ tracker/frameGenerator.o: tracker/frameGenerator.cpp.o
 
 # target to build an object file
 tracker/frameGenerator.cpp.o:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/frameGenerator.cpp.o
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/frameGenerator.cpp.o
 .PHONY : tracker/frameGenerator.cpp.o
 
 tracker/frameGenerator.i: tracker/frameGenerator.cpp.i
@@ -273,7 +300,7 @@ tracker/frameGenerator.i: tracker/frameGenerator.cpp.i
 
 # target to preprocess a source file
 tracker/frameGenerator.cpp.i:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/frameGenerator.cpp.i
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/frameGenerator.cpp.i
 .PHONY : tracker/frameGenerator.cpp.i
 
 tracker/frameGenerator.s: tracker/frameGenerator.cpp.s
@@ -282,7 +309,7 @@ tracker/frameGenerator.s: tracker/frameGenerator.cpp.s
 
 # target to generate assembly for a file
 tracker/frameGenerator.cpp.s:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/frameGenerator.cpp.s
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/frameGenerator.cpp.s
 .PHONY : tracker/frameGenerator.cpp.s
 
 tracker/gamedata.o: tracker/gamedata.cpp.o
@@ -291,7 +318,7 @@ tracker/gamedata.o: tracker/gamedata.cpp.o
 
 # target to build an object file
 tracker/gamedata.cpp.o:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/gamedata.cpp.o
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/gamedata.cpp.o
 .PHONY : tracker/gamedata.cpp.o
 
 tracker/gamedata.i: tracker/gamedata.cpp.i
@@ -300,7 +327,7 @@ tracker/gamedata.i: tracker/gamedata.cpp.i
 
 # target to preprocess a source file
 tracker/gamedata.cpp.i:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/gamedata.cpp.i
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/gamedata.cpp.i
 .PHONY : tracker/gamedata.cpp.i
 
 tracker/gamedata.s: tracker/gamedata.cpp.s
@@ -309,7 +336,7 @@ tracker/gamedata.s: tracker/gamedata.cpp.s
 
 # target to generate assembly for a file
 tracker/gamedata.cpp.s:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/gamedata.cpp.s
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/gamedata.cpp.s
 .PHONY : tracker/gamedata.cpp.s
 
 tracker/hud.o: tracker/hud.cpp.o
@@ -318,7 +345,7 @@ tracker/hud.o: tracker/hud.cpp.o
 
 # target to build an object file
 tracker/hud.cpp.o:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/hud.cpp.o
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/hud.cpp.o
 .PHONY : tracker/hud.cpp.o
 
 tracker/hud.i: tracker/hud.cpp.i
@@ -327,7 +354,7 @@ tracker/hud.i: tracker/hud.cpp.i
 
 # target to preprocess a source file
 tracker/hud.cpp.i:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/hud.cpp.i
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/hud.cpp.i
 .PHONY : tracker/hud.cpp.i
 
 tracker/hud.s: tracker/hud.cpp.s
@@ -336,7 +363,7 @@ tracker/hud.s: tracker/hud.cpp.s
 
 # target to generate assembly for a file
 tracker/hud.cpp.s:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/hud.cpp.s
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/hud.cpp.s
 .PHONY : tracker/hud.cpp.s
 
 tracker/ioMod.o: tracker/ioMod.cpp.o
@@ -345,7 +372,7 @@ tracker/ioMod.o: tracker/ioMod.cpp.o
 
 # target to build an object file
 tracker/ioMod.cpp.o:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/ioMod.cpp.o
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/ioMod.cpp.o
 .PHONY : tracker/ioMod.cpp.o
 
 tracker/ioMod.i: tracker/ioMod.cpp.i
@@ -354,7 +381,7 @@ tracker/ioMod.i: tracker/ioMod.cpp.i
 
 # target to preprocess a source file
 tracker/ioMod.cpp.i:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/ioMod.cpp.i
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/ioMod.cpp.i
 .PHONY : tracker/ioMod.cpp.i
 
 tracker/ioMod.s: tracker/ioMod.cpp.s
@@ -363,7 +390,7 @@ tracker/ioMod.s: tracker/ioMod.cpp.s
 
 # target to generate assembly for a file
 tracker/ioMod.cpp.s:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/ioMod.cpp.s
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/ioMod.cpp.s
 .PHONY : tracker/ioMod.cpp.s
 
 tracker/main.o: tracker/main.cpp.o
@@ -372,7 +399,7 @@ tracker/main.o: tracker/main.cpp.o
 
 # target to build an object file
 tracker/main.cpp.o:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/main.cpp.o
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/main.cpp.o
 .PHONY : tracker/main.cpp.o
 
 tracker/main.i: tracker/main.cpp.i
@@ -381,7 +408,7 @@ tracker/main.i: tracker/main.cpp.i
 
 # target to preprocess a source file
 tracker/main.cpp.i:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/main.cpp.i
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/main.cpp.i
 .PHONY : tracker/main.cpp.i
 
 tracker/main.s: tracker/main.cpp.s
@@ -390,7 +417,7 @@ tracker/main.s: tracker/main.cpp.s
 
 # target to generate assembly for a file
 tracker/main.cpp.s:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/main.cpp.s
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/main.cpp.s
 .PHONY : tracker/main.cpp.s
 
 tracker/multisprite.o: tracker/multisprite.cpp.o
@@ -399,7 +426,7 @@ tracker/multisprite.o: tracker/multisprite.cpp.o
 
 # target to build an object file
 tracker/multisprite.cpp.o:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/multisprite.cpp.o
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/multisprite.cpp.o
 .PHONY : tracker/multisprite.cpp.o
 
 tracker/multisprite.i: tracker/multisprite.cpp.i
@@ -408,7 +435,7 @@ tracker/multisprite.i: tracker/multisprite.cpp.i
 
 # target to preprocess a source file
 tracker/multisprite.cpp.i:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/multisprite.cpp.i
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/multisprite.cpp.i
 .PHONY : tracker/multisprite.cpp.i
 
 tracker/multisprite.s: tracker/multisprite.cpp.s
@@ -417,7 +444,7 @@ tracker/multisprite.s: tracker/multisprite.cpp.s
 
 # target to generate assembly for a file
 tracker/multisprite.cpp.s:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/multisprite.cpp.s
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/multisprite.cpp.s
 .PHONY : tracker/multisprite.cpp.s
 
 tracker/parseXML.o: tracker/parseXML.cpp.o
@@ -426,7 +453,7 @@ tracker/parseXML.o: tracker/parseXML.cpp.o
 
 # target to build an object file
 tracker/parseXML.cpp.o:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/parseXML.cpp.o
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/parseXML.cpp.o
 .PHONY : tracker/parseXML.cpp.o
 
 tracker/parseXML.i: tracker/parseXML.cpp.i
@@ -435,7 +462,7 @@ tracker/parseXML.i: tracker/parseXML.cpp.i
 
 # target to preprocess a source file
 tracker/parseXML.cpp.i:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/parseXML.cpp.i
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/parseXML.cpp.i
 .PHONY : tracker/parseXML.cpp.i
 
 tracker/parseXML.s: tracker/parseXML.cpp.s
@@ -444,7 +471,7 @@ tracker/parseXML.s: tracker/parseXML.cpp.s
 
 # target to generate assembly for a file
 tracker/parseXML.cpp.s:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/parseXML.cpp.s
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/parseXML.cpp.s
 .PHONY : tracker/parseXML.cpp.s
 
 tracker/player.o: tracker/player.cpp.o
@@ -453,7 +480,7 @@ tracker/player.o: tracker/player.cpp.o
 
 # target to build an object file
 tracker/player.cpp.o:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/player.cpp.o
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/player.cpp.o
 .PHONY : tracker/player.cpp.o
 
 tracker/player.i: tracker/player.cpp.i
@@ -462,7 +489,7 @@ tracker/player.i: tracker/player.cpp.i
 
 # target to preprocess a source file
 tracker/player.cpp.i:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/player.cpp.i
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/player.cpp.i
 .PHONY : tracker/player.cpp.i
 
 tracker/player.s: tracker/player.cpp.s
@@ -471,7 +498,7 @@ tracker/player.s: tracker/player.cpp.s
 
 # target to generate assembly for a file
 tracker/player.cpp.s:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/player.cpp.s
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/player.cpp.s
 .PHONY : tracker/player.cpp.s
 
 tracker/randomguy.o: tracker/randomguy.cpp.o
@@ -480,7 +507,7 @@ tracker/randomguy.o: tracker/randomguy.cpp.o
 
 # target to build an object file
 tracker/randomguy.cpp.o:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/randomguy.cpp.o
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/randomguy.cpp.o
 .PHONY : tracker/randomguy.cpp.o
 
 tracker/randomguy.i: tracker/randomguy.cpp.i
@@ -489,7 +516,7 @@ tracker/randomguy.i: tracker/randomguy.cpp.i
 
 # target to preprocess a source file
 tracker/randomguy.cpp.i:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/randomguy.cpp.i
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/randomguy.cpp.i
 .PHONY : tracker/randomguy.cpp.i
 
 tracker/randomguy.s: tracker/randomguy.cpp.s
@@ -498,7 +525,7 @@ tracker/randomguy.s: tracker/randomguy.cpp.s
 
 # target to generate assembly for a file
 tracker/randomguy.cpp.s:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/randomguy.cpp.s
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/randomguy.cpp.s
 .PHONY : tracker/randomguy.cpp.s
 
 tracker/renderContext.o: tracker/renderContext.cpp.o
@@ -507,7 +534,7 @@ tracker/renderContext.o: tracker/renderContext.cpp.o
 
 # target to build an object file
 tracker/renderContext.cpp.o:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/renderContext.cpp.o
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/renderContext.cpp.o
 .PHONY : tracker/renderContext.cpp.o
 
 tracker/renderContext.i: tracker/renderContext.cpp.i
@@ -516,7 +543,7 @@ tracker/renderContext.i: tracker/renderContext.cpp.i
 
 # target to preprocess a source file
 tracker/renderContext.cpp.i:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/renderContext.cpp.i
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/renderContext.cpp.i
 .PHONY : tracker/renderContext.cpp.i
 
 tracker/renderContext.s: tracker/renderContext.cpp.s
@@ -525,7 +552,7 @@ tracker/renderContext.s: tracker/renderContext.cpp.s
 
 # target to generate assembly for a file
 tracker/renderContext.cpp.s:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/renderContext.cpp.s
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/renderContext.cpp.s
 .PHONY : tracker/renderContext.cpp.s
 
 tracker/sprite.o: tracker/sprite.cpp.o
@@ -534,7 +561,7 @@ tracker/sprite.o: tracker/sprite.cpp.o
 
 # target to build an object file
 tracker/sprite.cpp.o:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/sprite.cpp.o
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/sprite.cpp.o
 .PHONY : tracker/sprite.cpp.o
 
 tracker/sprite.i: tracker/sprite.cpp.i
@@ -543,7 +570,7 @@ tracker/sprite.i: tracker/sprite.cpp.i
 
 # target to preprocess a source file
 tracker/sprite.cpp.i:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/sprite.cpp.i
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/sprite.cpp.i
 .PHONY : tracker/sprite.cpp.i
 
 tracker/sprite.s: tracker/sprite.cpp.s
@@ -552,7 +579,7 @@ tracker/sprite.s: tracker/sprite.cpp.s
 
 # target to generate assembly for a file
 tracker/sprite.cpp.s:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/sprite.cpp.s
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/sprite.cpp.s
 .PHONY : tracker/sprite.cpp.s
 
 tracker/textureWrapper.o: tracker/textureWrapper.cpp.o
@@ -561,7 +588,7 @@ tracker/textureWrapper.o: tracker/textureWrapper.cpp.o
 
 # target to build an object file
 tracker/textureWrapper.cpp.o:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/textureWrapper.cpp.o
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/textureWrapper.cpp.o
 .PHONY : tracker/textureWrapper.cpp.o
 
 tracker/textureWrapper.i: tracker/textureWrapper.cpp.i
@@ -570,7 +597,7 @@ tracker/textureWrapper.i: tracker/textureWrapper.cpp.i
 
 # target to preprocess a source file
 tracker/textureWrapper.cpp.i:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/textureWrapper.cpp.i
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/textureWrapper.cpp.i
 .PHONY : tracker/textureWrapper.cpp.i
 
 tracker/textureWrapper.s: tracker/textureWrapper.cpp.s
@@ -579,7 +606,7 @@ tracker/textureWrapper.s: tracker/textureWrapper.cpp.s
 
 # target to generate assembly for a file
 tracker/textureWrapper.cpp.s:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/textureWrapper.cpp.s
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/textureWrapper.cpp.s
 .PHONY : tracker/textureWrapper.cpp.s
 
 tracker/twowaymultisprite.o: tracker/twowaymultisprite.cpp.o
@@ -588,7 +615,7 @@ tracker/twowaymultisprite.o: tracker/twowaymultisprite.cpp.o
 
 # target to build an object file
 tracker/twowaymultisprite.cpp.o:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/twowaymultisprite.cpp.o
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/twowaymultisprite.cpp.o
 .PHONY : tracker/twowaymultisprite.cpp.o
 
 tracker/twowaymultisprite.i: tracker/twowaymultisprite.cpp.i
@@ -597,7 +624,7 @@ tracker/twowaymultisprite.i: tracker/twowaymultisprite.cpp.i
 
 # target to preprocess a source file
 tracker/twowaymultisprite.cpp.i:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/twowaymultisprite.cpp.i
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/twowaymultisprite.cpp.i
 .PHONY : tracker/twowaymultisprite.cpp.i
 
 tracker/twowaymultisprite.s: tracker/twowaymultisprite.cpp.s
@@ -606,7 +633,7 @@ tracker/twowaymultisprite.s: tracker/twowaymultisprite.cpp.s
 
 # target to generate assembly for a file
 tracker/twowaymultisprite.cpp.s:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/twowaymultisprite.cpp.s
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/twowaymultisprite.cpp.s
 .PHONY : tracker/twowaymultisprite.cpp.s
 
 tracker/unpack.o: tracker/unpack.cpp.o
@@ -615,7 +642,7 @@ tracker/unpack.o: tracker/unpack.cpp.o
 
 # target to build an object file
 tracker/unpack.cpp.o:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/unpack.cpp.o
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/unpack.cpp.o
 .PHONY : tracker/unpack.cpp.o
 
 tracker/unpack.i: tracker/unpack.cpp.i
@@ -624,7 +651,7 @@ tracker/unpack.i: tracker/unpack.cpp.i
 
 # target to preprocess a source file
 tracker/unpack.cpp.i:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/unpack.cpp.i
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/unpack.cpp.i
 .PHONY : tracker/unpack.cpp.i
 
 tracker/unpack.s: tracker/unpack.cpp.s
@@ -633,7 +660,7 @@ tracker/unpack.s: tracker/unpack.cpp.s
 
 # target to generate assembly for a file
 tracker/unpack.cpp.s:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/unpack.cpp.s
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/unpack.cpp.s
 .PHONY : tracker/unpack.cpp.s
 
 tracker/vector2f.o: tracker/vector2f.cpp.o
@@ -642,7 +669,7 @@ tracker/vector2f.o: tracker/vector2f.cpp.o
 
 # target to build an object file
 tracker/vector2f.cpp.o:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/vector2f.cpp.o
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/vector2f.cpp.o
 .PHONY : tracker/vector2f.cpp.o
 
 tracker/vector2f.i: tracker/vector2f.cpp.i
@@ -651,7 +678,7 @@ tracker/vector2f.i: tracker/vector2f.cpp.i
 
 # target to preprocess a source file
 tracker/vector2f.cpp.i:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/vector2f.cpp.i
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/vector2f.cpp.i
 .PHONY : tracker/vector2f.cpp.i
 
 tracker/vector2f.s: tracker/vector2f.cpp.s
@@ -660,7 +687,7 @@ tracker/vector2f.s: tracker/vector2f.cpp.s
 
 # target to generate assembly for a file
 tracker/vector2f.cpp.s:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/vector2f.cpp.s
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/vector2f.cpp.s
 .PHONY : tracker/vector2f.cpp.s
 
 tracker/viewport.o: tracker/viewport.cpp.o
@@ -669,7 +696,7 @@ tracker/viewport.o: tracker/viewport.cpp.o
 
 # target to build an object file
 tracker/viewport.cpp.o:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/viewport.cpp.o
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/viewport.cpp.o
 .PHONY : tracker/viewport.cpp.o
 
 tracker/viewport.i: tracker/viewport.cpp.i
@@ -678,7 +705,7 @@ tracker/viewport.i: tracker/viewport.cpp.i
 
 # target to preprocess a source file
 tracker/viewport.cpp.i:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/viewport.cpp.i
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/viewport.cpp.i
 .PHONY : tracker/viewport.cpp.i
 
 tracker/viewport.s: tracker/viewport.cpp.s
@@ -687,7 +714,7 @@ tracker/viewport.s: tracker/viewport.cpp.s
 
 # target to generate assembly for a file
 tracker/viewport.cpp.s:
-	$(MAKE) -f CMakeFiles/proj_4.dir/build.make CMakeFiles/proj_4.dir/tracker/viewport.cpp.s
+	$(MAKE) -f CMakeFiles/proj_5.dir/build.make CMakeFiles/proj_5.dir/tracker/viewport.cpp.s
 .PHONY : tracker/viewport.cpp.s
 
 # Help Target
@@ -698,19 +725,22 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... proj_4"
-	@echo "... old_engine.o"
-	@echo "... old_engine.i"
-	@echo "... old_engine.s"
+	@echo "... proj_5"
 	@echo "... tracker/background.o"
 	@echo "... tracker/background.i"
 	@echo "... tracker/background.s"
 	@echo "... tracker/clock.o"
 	@echo "... tracker/clock.i"
 	@echo "... tracker/clock.s"
+	@echo "... tracker/drawable.o"
+	@echo "... tracker/drawable.i"
+	@echo "... tracker/drawable.s"
 	@echo "... tracker/engine.o"
 	@echo "... tracker/engine.i"
 	@echo "... tracker/engine.s"
+	@echo "... tracker/faller.o"
+	@echo "... tracker/faller.i"
+	@echo "... tracker/faller.s"
 	@echo "... tracker/frameFactory.o"
 	@echo "... tracker/frameFactory.i"
 	@echo "... tracker/frameFactory.s"

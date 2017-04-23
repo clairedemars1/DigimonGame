@@ -148,13 +148,13 @@ void Engine::play() {
 			
 			//notify player: jump
 			if ( keystate[SDL_SCANCODE_J] ){
-				player.notify("j_key_down");
+				player.notify("jKeyDown");
 			}
       } 
       if (event.type == SDL_KEYUP) {
 		  //notify player: jump
 			if ( keystate[SDL_SCANCODE_J] ){
-				player.notify("j_key_up");
+				player.notify("jKeyUp");
 			}
 	  }
 

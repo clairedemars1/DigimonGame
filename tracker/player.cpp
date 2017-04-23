@@ -7,41 +7,41 @@
 
 Player::Player(): TwoWayMultiSprite("player"), 
 	yLimit(Gamedata::getInstance().getXmlInt("player/yLimit")),
-	is_jumping(false), 
-	y_before_jump(0),
+	isJumping(false),
+	yBeforeJump(0),
 	gravity(Gamedata::getInstance().getXmlFloat("player/gravity")),
-	min_jump_vel_y(Gamedata::getInstance().getXmlInt("player/minJumpSpeedY")),
-	max_jump_vel_y(Gamedata::getInstance().getXmlInt("player/maxJumpSpeedY")),
-	j_key_down(false),
-	j_key_up(false)
+	minJumpVelY(Gamedata::getInstance().getXmlInt("player/minJumpSpeedY")),
+	maxJumpVelY(Gamedata::getInstance().getXmlInt("player/maxJumpSpeedY")),
+	jKeyDown(false),
+	jKeyUp(false)
 	{}
 Player::Player(const Player& rhs): 
 	TwoWayMultiSprite(rhs),
 	yLimit(Gamedata::getInstance().getXmlInt("player/yLimit")),
-	is_jumping(false),
-	y_before_jump(0),
+	isJumping(false),
+	yBeforeJump(0),
 	gravity(Gamedata::getInstance().getXmlFloat("player/gravity")),
-	min_jump_vel_y(Gamedata::getInstance().getXmlInt("player/minJumpSpeedY")),
-	max_jump_vel_y(Gamedata::getInstance().getXmlInt("player/maxJumpSpeedY")),
-	j_key_down(false),
-	j_key_up(false)
+	minJumpVelY(Gamedata::getInstance().getXmlInt("player/minJumpSpeedY")),
+	maxJumpVelY(Gamedata::getInstance().getXmlInt("player/maxJumpSpeedY")),
+	jKeyDown(false),
+	jKeyUp(false)
 	{}
 Player::Player(const std::string& name): 
 	TwoWayMultiSprite(name), 
 	yLimit(Gamedata::getInstance().getXmlInt("player/yLimit")),	
-	is_jumping(false),
-	y_before_jump(0),
+	isJumping(false),
+	yBeforeJump(0),
 	gravity(Gamedata::getInstance().getXmlFloat("player/gravity")),
-	min_jump_vel_y(Gamedata::getInstance().getXmlInt("player/minJumpSpeedY")),
-	max_jump_vel_y(Gamedata::getInstance().getXmlInt("player/maxJumpSpeedY")),
-	j_key_down(false),
-	j_key_up(false)
+	minJumpVelY(Gamedata::getInstance().getXmlInt("player/minJumpSpeedY")),
+	maxJumpVelY(Gamedata::getInstance().getXmlInt("player/maxJumpSpeedY")),
+	jKeyDown(false),
+	jKeyUp(false)
 	{}
 
 void Player::notify(std::string event){
-	// event options: j_key_down, j_key_up
-	if (event == "j_key_down") j_key_down = true;
-	if (event == "j_key_up") j_key_up = true;
+	// event options: jKeyDown, jKeyUp
+	if (event == "jKeyDown") jKeyDown = true;
+	if (event == "jKeyUp") jKeyUp = true;
 	
 }
 
@@ -56,17 +56,25 @@ void Player::update(Uint32 ticks){
 	
 	// step 1: get instructions
 	// jumping
-	if (j_key_down){
-		y_before_jump = getY();
-		j_key_down = false;
-		is_jumping = true;
-		
-		setVelocityY(min_jump_vel_y);
+	// note that 2 forces limit the velocity: gravity and releasing the jump key
+	// 		thus if you release late, you ahve a large velocity for a long time, and get high
+	//		ie let it run at high velocity until release jump key, then both drop it and allow gravity to decrease it
+	if (jKeyDown){
+		// only allow if he's on the ground
+		if (not isJumping) {
+			yBeforeJump = getY();
+			jKeyDown = false;
+			isJumping = true;
+			
+			setVelocityX(Gamedata::getInstance().getXmlInt("player/jumpSpeedX"));
+			setVelocityY(maxJumpVelY);
+		}
+
 	}
-	if (j_key_up) {
+	if (jKeyUp) {
 		
-		if ( getVelocityY() > min_jump_vel_y) { setVelocityY(max_jump_vel_y); }
-		j_key_up = false;
+		if ( getVelocityY() > minJumpVelY) { setVelocityY(minJumpVelY); }
+		jKeyUp = false;
 	}
 	
 	// asdw keys
@@ -89,18 +97,18 @@ void Player::update(Uint32 ticks){
 	
 	
 	// step 2: move based on instructions
-	if (is_jumping){
-		
-		// move x based on x vel
+	if (isJumping){
+
+		// move x based on x vel that was set when jump started
 		moveHoriz(ticks); 
 
 		// apply gravity
-		setVelocityY(getVelocityY()*static_cast<float>(ticks)*0.001);
+		setVelocityY(getVelocityY() + gravity*static_cast<float>(ticks)*0.001);
 		moveVert(ticks);
 		
 		// if we get below y where started jump, then actually end jump
-		if (getY() >= y_before_jump){
-			is_jumping = false;
+		if (getY() > yBeforeJump){
+			isJumping = false;
 		}
 	} else { // allow adws keys
 	
@@ -109,8 +117,11 @@ void Player::update(Uint32 ticks){
 			 moveHoriz(ticks); 
 		 }
 		 if (directions[1]){ // vertical movement from keys
+			//~ std::cout << "want" << std::endl;
+
 			 
 			 if (getY() > yLimit || directions[1] < 0){ // only allow if player is not too high or player is moving down
+
 				 setVelocityY(directions[1]*-fabs(getVelocityY()) ); // add a negative b/c y increases as you go down
 				 moveVert(ticks);
 			 }

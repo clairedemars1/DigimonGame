@@ -25,11 +25,12 @@ start jump arch as soon as it's pressed, but increase y vel each time
 if that's jumpy, ignore gravity while holding j key (up to 4 frames)
 
 decision: 
+	- can only jump if on ground, holding j down longer make it jump higher
 	- jump is only way to change y position
 	- size of jump (height, & thus length) depends on how long player held down the jump key to start the jumping
 	- left and right keys have no effect while character is jumping
 	- i will not have levels, the only level is the ground
-	if i did have levels, then couldn't check y to see if was jumping (to see if could use left and right keys), so i'd need "is_jumping" bool. i will use that for extensibility.
+	if i did have levels, then couldn't check y to see if was jumping (to see if could use left and right keys), so i'd need "isJumping" bool. i will use that for extensibility.
 	- uncertainty: don't i need to limit how long they can hold down the jump key for, else they could fly away
 
 

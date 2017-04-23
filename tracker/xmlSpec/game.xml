@@ -94,18 +94,19 @@
 </agumon>
 -->
 <player>
-  <file>images/agumon.png</file>
+  <file>images/small_greymon.png</file>
   <startLoc x="600" y="650"/>
-  <frames>2</frames>
+  <frames>3</frames>
   <frameInterval>300</frameInterval>
   <speedX>300</speedX>
-  <speedY>300</speedY>
-  <yLimit>550</yLimit>
+  <speedY>-500</speedY>
+  <yLimit>550</yLimit> 
   <transparency>true</transparency>
   <!-- jumping info-->
-  <gravity>3</gravity>
-  <minJumpSpeedY>300</minJumpSpeedY>
-  <maxJumpSpeedY>300</maxJumpSpeedY>
+  <gravity>1000</gravity>
+  <jumpSpeedX>100</jumpSpeedX>
+  <minJumpSpeedY>-500</minJumpSpeedY>
+  <maxJumpSpeedY>-700</maxJumpSpeedY>
 </player>
 
 <digivolve>
@@ -129,9 +130,12 @@
 </metal_greymon>
 
 <patamon>
+<!--
   <file>images/patamon.png</file>
+-->
+  <file>images/blank.png</file>
   <startLoc x="600" y="480"/>
-  <frames>3</frames>
+  <frames>1</frames>
   <frameInterval>250</frameInterval>
   <speedX>0</speedX>
   <speedY>200</speedY>

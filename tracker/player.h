@@ -16,13 +16,13 @@ public:
 private:
 	int yLimit;
 	
-	bool is_jumping;
-	int y_before_jump;
+	bool isJumping;
+	int yBeforeJump;
 	float gravity;
-	int min_jump_vel_y;
-	int max_jump_vel_y;
-	bool j_key_down;
-	bool j_key_up; //stop adding height to the jump, ie stop starting the jump
+	int minJumpVelY;
+	int maxJumpVelY;
+	bool jKeyDown;
+	bool jKeyUp; //stop adding height to the jump, ie stop starting the jump
 };
 
 #endif

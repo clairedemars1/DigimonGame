@@ -10,38 +10,28 @@ void Patroller::update(Uint32 ticks){
 	
 	
 	// keep in patrolling range
-	if ( getX() < origX) {
+	if ( getX() < leftEndPoint) {
 		setVelocityX( fabs( getVelocityX() ) );
 	}
-	if ( getX() > (origX + patrolRange) ) {
+	if ( getX() > (leftEndPoint + patrolRange) ) {
 		setVelocityX( -fabs( getVelocityX() ) );
 	}  
 }
 
 
-void Patroller::setX(float x){
-	
-	// or set x randomly
-		// give them random x in the world, and random y on the ground
-	//~ int worldWidth = Gamedata::getInstance().getXmlInt("world/width");
-	//~ setX( rand()%(worldWidth - getFrameWidth() ) );
-
-	TwoWayMultiSprite::setX(x);
-	origX = getX();
-}
-
-
-
 void Patroller::advanceFrameRandomly(){
 		// move to a diff frame
-	int r = rand()% 3;
+	int r = rand()% 2;
 	if (r == 0 ) {
-		advanceFrame();
+		std::cout << "case 1" << std::endl;
+		//~ advanceFrame();
 	} else if (r == 1 ){
+		std::cout << "case 2" << std::endl;
+
 		advanceFrame();
 		advanceFrame();
 	} // else start on first frame
-	
+	else	std::cout << "case 3" << std::endl;
 }
 
 void Patroller::setYRand(){

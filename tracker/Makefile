@@ -58,3 +58,5 @@ frames_clean:
 make_vid:
 	avconv -r 30 -i frames/cmdemar.%4d.bmp frames/cmdemar.mp4
 
+
+#does not pick up header files changes: eg patroller (even though patroller.o)

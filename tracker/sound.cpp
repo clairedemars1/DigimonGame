@@ -32,7 +32,8 @@ SDLSound::SDLSound() :
                    audioBuffers)){
     throw string("Unable to open audio!");
   }
-  music = Mix_LoadMUS("sounds/digimon_theme.wav");
+  //~ music = Mix_LoadMUS("sounds/digimon_theme.wav");
+  music = Mix_LoadMUS("sounds/hey_digimon.wav");
   // Need to install midi to play the following:
   // music = Mix_LoadMUS("sound/ballad2.mid");
   if (!music) throw string("Couldn't load music")+Mix_GetError();

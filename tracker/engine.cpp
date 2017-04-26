@@ -11,6 +11,9 @@
 #include "randomguy.h"
 #include "gamedata.h"
 #include "engine.h"
+#include "shootingSprite.h"
+
+//~ ShootingSprite test("player");
 
 Engine::~Engine() { 
   std::cout << "Terminating program" << std::endl;
@@ -44,16 +47,23 @@ Engine::Engine() :
 	backgrounds.push_back( Background("back"+num, Gamedata::getInstance().getXmlInt("back"+num+"/factor") ) );
   }
   
+  // fallers
+  int n = Gamedata::getInstance().getXmlInt("numOfFallingThings");
+  for (int i=0; i<n; i++){
+	 fallers.push_back(new Faller("patamon"));
+	 //~ std::cout << "new faller" << std::endl;
+  }
+  
   // patrollers
-  int numPatrollers =  Gamedata::getInstance().getXmlInt("patroller/howMany");
   std::vector<int> patroller_x_positions = {};
   int worldWidth = Gamedata::getInstance().getXmlInt("world/width");
-  //~ int 
   // todo, pull the interval distance from xml
+  int spaceBetween = Gamedata::getInstance().getXmlInt("patroller/spaceBetween");
+  int numPatrollers =  worldWidth/spaceBetween;
 
   // place them at intervals
   for (int i=0; i < numPatrollers; i++){
-	  patrollers.push_back(Patroller("gesomon", (i*400)% worldWidth));
+	  patrollers.push_back(Patroller("gesomon", (i*spaceBetween)% worldWidth));
   }
   //~ for (auto& p: patrollers){
 	  //~ std::cout << p.getX() << " here " << p.getY() << std::endl;
@@ -65,15 +75,35 @@ Engine::Engine() :
 }
 
 void Engine::draw() const {
-  for (auto& b : backgrounds){
-	b.draw();  
+  //~ for (auto& b : backgrounds){
+	//~ b.draw();  
+  //~ }
+  
+  backgrounds[0].draw();
+  for (auto faller: fallers){
+	  if (faller->getScaleFactor() < 1.0 ) faller->draw();
   }
+  
+  backgrounds[1].draw();
+  for (auto faller: fallers){
+	  if (faller->getScaleFactor() > 0.4 && faller->getScaleFactor() < 1.0 ) faller->draw();
+  }
+  backgrounds[2].draw();
+  
+  backgrounds[3].draw();
+  for (auto faller: fallers){
+	  if (faller->getScaleFactor() == 1.0 ) faller->draw();
+  }
+  
+  //~ for(auto s : fallers) s->draw();
+  player.draw();
   
   for (auto& p: patrollers){
 	  p.draw();
   }
   
   player.draw();
+  //~ test.draw();
   
   // hud and info
   std::stringstream strm;
@@ -96,6 +126,7 @@ void Engine::update(Uint32 ticks) {
 
   for(auto* s : fallers) s->update(ticks);
   player.update(ticks); 
+  //~ test.update(ticks);
   hud.update();
   
   viewport.update(); // always update viewport last

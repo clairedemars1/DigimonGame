@@ -17,7 +17,9 @@
 <view> <!--given-->
   <width>854</width> 
   <height>480</height>
-s</view>
+</view>
+
+<groundYOffset>100</groundYOffset>
 
 <font name="font">
   <file>fonts/arial.ttf</file>
@@ -100,7 +102,7 @@ s</view>
   <frames>3</frames>
   <frameInterval>300</frameInterval>
   <speedX>400</speedX>
-  <speedY>-200</speedY>
+  <speedY>-100</speedY>
   <yLimit>550</yLimit> 
   <transparency>true</transparency>
   <!-- jumping info-->
@@ -124,9 +126,21 @@ s</view>
 </fireball>
 
 <patroller>
-	<howMany>10</howMany>
+	<howMany>10</howMany> <!-- todo remoove -->
 	<yLimit>601</yLimit>
+	<spaceBetween>700</spaceBetween>
 </patroller>
+
+<gesomon>
+  <file>images/gesomon_2.xcf</file>
+  <startLoc x="0" y="0"/>
+  <frames>4</frames>
+  <frameInterval>300</frameInterval>
+  <speedX>100</speedX>
+  <speedY>0</speedY>
+  <transparency>true</transparency>
+  <patrolRange>300</patrolRange>
+</gesomon>
 
 <digivolve>
   <file>images/digivolve.png</file>
@@ -142,35 +156,26 @@ s</view>
   <file>images/metal_greymon.png</file>
   <startLoc x="300" y="200"/>
   <frames>3</frames>
-  <frameInterval>200</frameInterval>
+  <frameInterval>200</frameInterval>dd
   <speedX>200</speedX>
   <speedY>0</speedY>
   <transparency>true</transparency>
 </metal_greymon>
 
 <patamon>
-<!--
   <file>images/patamon.png</file>
--->
+<!--
   <file>images/blank.png</file>
+-->
   <startLoc x="600" y="480"/>
-  <frames>1</frames>
+  <frames>3</frames>
   <frameInterval>250</frameInterval>
   <speedX>0</speedX>
   <speedY>200</speedY>
   <transparency>true</transparency>
 </patamon>
 
-<gesomon>
-  <file>images/gesomon_2.xcf</file>
-  <startLoc x="0" y="0"/>
-  <frames>4</frames>
-  <frameInterval>300</frameInterval>
-  <speedX>100</speedX>
-  <speedY>0</speedY>
-  <transparency>true</transparency>
-  <patrolRange>100</patrolRange>
-</gesomon>
+
 
 <logo>
   <file>images/logo.png</file>

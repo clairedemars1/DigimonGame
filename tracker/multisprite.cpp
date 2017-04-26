@@ -9,6 +9,9 @@ void MultiSprite::advanceFrame(Uint32 ticks) {
 		timeSinceLastFrame = 0;
 	}
 }
+void MultiSprite::advanceFrame() {
+    currentFrame = (currentFrame+1) % numberOfFrames;
+}
 
 MultiSprite::MultiSprite( const std::string& name) :
     Drawable(name,

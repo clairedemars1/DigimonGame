@@ -5,9 +5,12 @@
 #include "clock.h"
 #include "background.h"
 #include "player.h"
+#include "patroller.h"
 #include "hud.h"
 #include "viewport.h"
 #include "frameGenerator.h"
+#include "sound.h"
+
 
 class Engine {
 public:
@@ -21,12 +24,15 @@ private:
   const RenderContext* rc;
   const IOmod& io;
   Clock& clock;
+  SDLSound sound;
+
 
   SDL_Renderer * const renderer;
   std::vector<Background> backgrounds;
   Viewport& viewport;
 
   std::vector<Drawable*> fallers;
+  std::vector<Patroller> patrollers;
   Player player;
   Hud hud;
 

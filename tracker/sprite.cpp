@@ -21,10 +21,6 @@ Sprite::Sprite(const std::string& name) :
 Sprite::Sprite(const Sprite& s) :
   Drawable(s), 
   frame(s.frame)
-  //~ worldWidth(Gamedata::getInstance().getXmlInt("world/width")),
-  //~ worldHeight(Gamedata::getInstance().getXmlInt("world/height")),
-  //~ frameWidth(s.getFrame()->getWidth()),
-  //~ frameHeight(s.getFrame()->getHeight())
 { }
 
 //~ const Sprite& Sprite::operator=(const Sprite& rhs){
@@ -32,10 +28,6 @@ Sprite& Sprite::operator=(const Sprite& rhs){
 	
 	Drawable::operator=(rhs);
 	frame = rhs.frame;
-	//~ worldWidth = rhs.worldWidth;
-	//~ worldHeight = rhs.worldHeight;
-	//~ frameWidth = rhs.frameWidth;
-	//~ frameHeight = rhs.frameHeight;
 	return *this;
 	
 }

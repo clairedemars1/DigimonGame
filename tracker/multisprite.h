@@ -28,6 +28,7 @@ protected:
   float timeSinceLastFrame;
 
   void advanceFrame(Uint32 ticks);
+  void advanceFrame();
   void moveVert(Uint32 ticks);
   void moveHoriz(Uint32 ticks);
 };

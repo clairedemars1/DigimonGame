@@ -18,10 +18,6 @@ public:
   
 private:
   const TextureWrapper * frame;
-  //~ int worldWidth;
-  //~ int worldHeight;
-  //~ int frameWidth;
-  //~ int frameHeight;
   int getDistance(const Sprite*) const;
   
 };

@@ -43,7 +43,7 @@ void TextureWrapper::draw(int x, int y, float scaleFactor) const {
   SDL_RenderCopy(renderer, texture, NULL, &dest);
 }
 
-void TextureWrapper::draw(int x, int y, bool flip) const {
+void TextureWrapper::draw(int x, int y, bool flip) const { // so you can't scale a bidirectional sprite, b/c they use diff functions
   SDL_RendererFlip sdl_flip = SDL_FLIP_NONE;
   if (flip) sdl_flip = SDL_FLIP_HORIZONTAL;
   

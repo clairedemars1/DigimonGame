@@ -24,30 +24,40 @@ Engine::Engine() :
   rc( RenderContext::getInstance() ),
   io( IOmod::getInstance() ),
   clock( Clock::getInstance() ),
+  sound(),
   renderer( rc->getRenderer() ),
   backgrounds(),
   viewport( Viewport::getInstance() ),
   fallers(),
+  patrollers(),
   player(),
   hud(renderer),
   makeVideo( false ),
   frameGenerator()
-{		
+{
+  // seed rand		
+  srand(time(0));
+  
   //backgrounds
   const std::string arr[4] = {"4", "3", "2", "1"};
   for (auto& num: arr){  
 	backgrounds.push_back( Background("back"+num, Gamedata::getInstance().getXmlInt("back"+num+"/factor") ) );
   }
   
-  //things falling from sky
-  int n = Gamedata::getInstance().getXmlInt("numOfFallingThings");
-  std::srand( std::time(0) ); // important for spawning
-  for (int i=0; i<n; i++){
-	 fallers.push_back(new Faller("patamon"));
+  // patrollers
+  int numPatrollers =  Gamedata::getInstance().getXmlInt("patroller/howMany");
+  std::vector<int> patroller_x_positions = {};
+  int worldWidth = Gamedata::getInstance().getXmlInt("world/width");
+  //~ int 
+  // todo, pull the interval distance from xml
+
+  // place them at intervals
+  for (int i=0; i < numPatrollers; i++){
+	  patrollers.push_back(Patroller("gesomon", (i*400)% worldWidth));
   }
-  //~ std::sort(fallers.begin(), fallers.end(), // decided to do another way
-		//~ [](const Drawable* a, const Drawable* b)->bool{return a->getScaleFactor() < b->getScaleFactor();} // why fail when Faller*? 
-  //~ );
+  //~ for (auto& p: patrollers){
+	  //~ std::cout << p.getX() << " here " << p.getY() << std::endl;
+  //~ }
   
   //player
   Viewport::getInstance().setObjectToTrack(&player);
@@ -55,28 +65,14 @@ Engine::Engine() :
 }
 
 void Engine::draw() const {
-  //~ for (auto& b : backgrounds){
-	//~ b.draw();  
-  //~ }
-  
-  //backgrounds alternated with fallers
-  backgrounds[0].draw();
-  for (auto faller: fallers){
-	  if (faller->getScaleFactor() < 1.0 ) faller->draw();
+  for (auto& b : backgrounds){
+	b.draw();  
   }
   
-  backgrounds[1].draw();
-  for (auto faller: fallers){
-	  if (faller->getScaleFactor() > 0.4 && faller->getScaleFactor() < 1.0 ) faller->draw();
-  }
-  backgrounds[2].draw();
-  
-  backgrounds[3].draw();
-  for (auto faller: fallers){
-	  if (faller->getScaleFactor() == 1.0 ) faller->draw();
+  for (auto& p: patrollers){
+	  p.draw();
   }
   
-  //~ for(auto s : fallers) s->draw();
   player.draw();
   
   // hud and info
@@ -95,9 +91,10 @@ void Engine::update(Uint32 ticks) {
   if ( makeVideo ) frameGenerator.makeFrame();
 
   for (auto& b: backgrounds) b.update();
+  
+  for (auto& p: patrollers ) p.update(ticks); // need this?
 
   for(auto* s : fallers) s->update(ticks);
-  //~ player.update(ticks, directions); 
   player.update(ticks); 
   hud.update();
   
@@ -132,8 +129,12 @@ void Engine::play() {
 			  if ( clock.isPaused() ) clock.unpause();
 			  else clock.pause();
 			}
+			// show hud
 			if ( keystate[SDL_SCANCODE_F1] ) {
 				hud.show();
+			}
+			if ( keystate[SDL_SCANCODE_SPACE] ) {
+				sound.toggleMusic();
 			}
 			
 			// capture frames

@@ -17,7 +17,7 @@
 <view> <!--given-->
   <width>854</width> 
   <height>480</height>
-</view>
+s</view>
 
 <font name="font">
   <file>fonts/arial.ttf</file>
@@ -98,8 +98,8 @@
   <startLoc x="600" y="650"/>
   <frames>3</frames>
   <frameInterval>300</frameInterval>
-  <speedX>300</speedX>
-  <speedY>-500</speedY>
+  <speedX>400</speedX>
+  <speedY>-200</speedY>
   <yLimit>550</yLimit> 
   <transparency>true</transparency>
   <!-- jumping info-->
@@ -108,6 +108,11 @@
   <minJumpSpeedY>-500</minJumpSpeedY>
   <maxJumpSpeedY>-700</maxJumpSpeedY>
 </player>
+
+<patroller>
+	<howMany>10</howMany>
+	<yLimit>601</yLimit>
+</patroller>
 
 <digivolve>
   <file>images/digivolve.png</file>
@@ -141,6 +146,17 @@
   <speedY>200</speedY>
   <transparency>true</transparency>
 </patamon>
+
+<gesomon>
+  <file>images/gesomon_2.xcf</file>
+  <startLoc x="0" y="0"/>
+  <frames>4</frames>
+  <frameInterval>300</frameInterval>
+  <speedX>100</speedX>
+  <speedY>0</speedY>
+  <transparency>true</transparency>
+  <patrolRange>100</patrolRange>
+</gesomon>
 
 <logo>
   <file>images/logo.png</file>

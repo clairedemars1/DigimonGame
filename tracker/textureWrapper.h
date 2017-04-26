@@ -12,8 +12,8 @@ public:
   TextureWrapper& operator=(const TextureWrapper&);
 
   void draw(int x, int y) const;
-  void draw(int x, int y, float scaleFactor) const;
-  void draw(int x, int y, bool flip) const;
+  void draw(int x, int y, float scaleFactor) const; // new
+  void draw(int x, int y, bool flip) const; //new
   void draw(int sx, int sy, int dx, int dy) const;
 
   SDL_Texture* getTexture() const { return texture; }

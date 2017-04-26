@@ -10,6 +10,7 @@
 #include "viewport.h"
 #include "frameGenerator.h"
 #include "sound.h"
+#include "collisionStrategy.h"
 
 
 class Engine {
@@ -35,6 +36,8 @@ private:
   std::vector<Patroller> patrollers;
   Player player;
   Hud hud;
+  CollisionStrategy* strategy_p; // pointer so you can change it to do a different stategy
+
 
   bool makeVideo;
   FrameGenerator frameGenerator;

@@ -23,15 +23,13 @@ void Patroller::advanceFrameRandomly(){
 		// move to a diff frame
 	int r = rand()% 2;
 	if (r == 0 ) {
-		std::cout << "case 1" << std::endl;
+		//~ std::cout << "case 1" << std::endl;
 		//~ advanceFrame();
 	} else if (r == 1 ){
-		std::cout << "case 2" << std::endl;
-
+		//~ std::cout << "case 2" << std::endl;
 		advanceFrame();
 		advanceFrame();
-	} // else start on first frame
-	else	std::cout << "case 3" << std::endl;
+	} 
 }
 
 void Patroller::setYRand(){

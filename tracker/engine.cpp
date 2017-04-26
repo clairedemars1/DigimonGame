@@ -35,50 +35,48 @@ Engine::Engine() :
   patrollers(),
   player(),
   hud(renderer),
+  strategy_p(new RectangularCollisionStrategy),
   makeVideo( false ),
   frameGenerator()
-{
-  // seed rand		
-  srand(time(0));
-  
-  //backgrounds
-  const std::string arr[4] = {"4", "3", "2", "1"};
-  for (auto& num: arr){  
-	backgrounds.push_back( Background("back"+num, Gamedata::getInstance().getXmlInt("back"+num+"/factor") ) );
-  }
-  
-  // fallers
-  int n = Gamedata::getInstance().getXmlInt("numOfFallingThings");
-  for (int i=0; i<n; i++){
-	 fallers.push_back(new Faller("patamon"));
-	 //~ std::cout << "new faller" << std::endl;
-  }
-  
-  // patrollers
-  std::vector<int> patroller_x_positions = {};
-  int worldWidth = Gamedata::getInstance().getXmlInt("world/width");
-  // todo, pull the interval distance from xml
-  int spaceBetween = Gamedata::getInstance().getXmlInt("patroller/spaceBetween");
-  int numPatrollers =  worldWidth/spaceBetween;
+{	
+  // init
+	  // seed rand		
+	  srand(time(0));
+	  
+	  //backgrounds
+	  const std::string arr[4] = {"4", "3", "2", "1"};
+	  for (auto& num: arr){  
+		backgrounds.push_back( Background("back"+num, Gamedata::getInstance().getXmlInt("back"+num+"/factor") ) );
+	  }
+	  
+	  // fallers
+	  int n = Gamedata::getInstance().getXmlInt("numOfFallingThings");
+	  for (int i=0; i<n; i++){
+		 fallers.push_back(new Faller("patamon"));
+		 //~ std::cout << "new faller" << std::endl;
+	  }
+	  
+	  // patrollers
+	  std::vector<int> patroller_x_positions = {};
+	  int worldWidth = Gamedata::getInstance().getXmlInt("world/width");
+	  int spaceBetween = Gamedata::getInstance().getXmlInt("patroller/spaceBetween");
+	  int numPatrollers =  worldWidth/spaceBetween;
+	  // place them at intervals
+	  for (int i=0; i < numPatrollers; i++){
+		  patrollers.push_back(Patroller("gesomon", (i*spaceBetween)% worldWidth));
+	  }
 
-  // place them at intervals
-  for (int i=0; i < numPatrollers; i++){
-	  patrollers.push_back(Patroller("gesomon", (i*spaceBetween)% worldWidth));
-  }
-  //~ for (auto& p: patrollers){
-	  //~ std::cout << p.getX() << " here " << p.getY() << std::endl;
-  //~ }
-  
-  //player
-  Viewport::getInstance().setObjectToTrack(&player);
-  std::cout << "Loading complete" << std::endl;
+	  //player
+	  Viewport::getInstance().setObjectToTrack(&player);
+	  std::cout << "Loading complete" << std::endl;
 }
 
 void Engine::draw() const {
   //~ for (auto& b : backgrounds){
 	//~ b.draw();  
   //~ }
-  
+  //~ for(auto s : fallers) s->draw();
+
   backgrounds[0].draw();
   for (auto faller: fallers){
 	  if (faller->getScaleFactor() < 1.0 ) faller->draw();
@@ -95,15 +93,12 @@ void Engine::draw() const {
 	  if (faller->getScaleFactor() == 1.0 ) faller->draw();
   }
   
-  //~ for(auto s : fallers) s->draw();
   player.draw();
-  
+  //~ test.draw();
+
   for (auto& p: patrollers){
 	  p.draw();
   }
-  
-  player.draw();
-  //~ test.draw();
   
   // hud and info
   std::stringstream strm;
@@ -130,6 +125,17 @@ void Engine::update(Uint32 ticks) {
   hud.update();
   
   viewport.update(); // always update viewport last
+  
+  // collisions
+  for (auto it=patrollers.begin(); it < patrollers.end(); it++) {
+	  if (strategy_p->execute(*it, player) ){
+		  //~ std::cout << "collision" <<std::endl;
+		  // player explodes
+		  
+	  }
+	  //~ std::cout << "end loop" << std::endl;
+  }
+  
 }
 
 void Engine::play() {

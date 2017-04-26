@@ -1,6 +1,9 @@
 #include <cmath>
 #include "drawable.h"
 
+#ifndef COLLISION_STRATEGY_H
+#define COLLISION_STRATEGY_H
+
 class CollisionStrategy {
 public:
   virtual bool execute(const Drawable&, const Drawable&) const = 0;
@@ -23,12 +26,4 @@ public:
   float distance(float, float, float, float) const;
 };
 
-//~ class PerPixelCollisionStrategy : public CollisionStrategy {
-//~ public:
-  //~ PerPixelCollisionStrategy() {}
-  //~ virtual bool execute(const Drawable&, const Drawable&) const;
-  //~ virtual void draw() const;
-//~ private:
-  //~ bool isVisible(Uint32, SDL_Surface*) const;
-//~ };
-
+#endif

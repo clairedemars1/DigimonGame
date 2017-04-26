@@ -37,6 +37,10 @@
 	<y>30</y>
 </hud>
 
+<chunk>
+  <size>9</size>
+  <distance>200</distance>
+</chunk>
 
 <!--backgrounds-->
 <world>

@@ -29,7 +29,11 @@ OBJS = \
 	engine.o \
 	main.o \
 	faller.o\
-	sound.o
+	sound.o\
+	bullet.o\
+	bulletPool.o\
+	collisionStrategy.o\
+	shootingSprite.o
 
 #~ name changes: frame -> textureWrapper 
 #~ goodguy -> player 

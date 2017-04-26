@@ -95,6 +95,7 @@ s</view>
 -->
 <player>
   <file>images/small_greymon.png</file>
+  <bullet>fireball</bullet>
   <startLoc x="600" y="650"/>
   <frames>3</frames>
   <frameInterval>300</frameInterval>
@@ -108,6 +109,19 @@ s</view>
   <minJumpSpeedY>-500</minJumpSpeedY>
   <maxJumpSpeedY>-700</maxJumpSpeedY>
 </player>
+
+
+
+<fireball>
+  <file>images/fireball.xcf</file>
+  <interval>300</interval>
+  <frames>2</frames>
+  <distance>320</distance>
+  <startLoc x="100" y="100"/>
+  <speedX>200</speedX>
+  <speedY>0</speedY>
+  <strategy>rectangular</strategy>
+</fireball>
 
 <patroller>
 	<howMany>10</howMany>

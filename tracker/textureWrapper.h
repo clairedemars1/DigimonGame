@@ -1,5 +1,6 @@
 #ifndef FRAME__H
 #define FRAME__H
+// malloy
 
 #include <iostream>
 #include <string>
@@ -7,23 +8,26 @@
 
 class TextureWrapper {
 public:
-  TextureWrapper( SDL_Texture*);
+  TextureWrapper( SDL_Texture* );
   TextureWrapper(const TextureWrapper&);
   TextureWrapper& operator=(const TextureWrapper&);
 
+  ~TextureWrapper()=default;
+
   void draw(int x, int y) const;
-  void draw(int x, int y, float scaleFactor) const; // new
-  void draw(int x, int y, bool flip) const; //new
+  void draw(int x, int y, float scale) const;
+  void draw(int x, int y, bool flip) const; // from claire's
   void draw(int sx, int sy, int dx, int dy) const;
 
   SDL_Texture* getTexture() const { return texture; }
-  int getWidth()  const { return width; }
-  int getHeight() const { return height; }
+  inline int getWidth()  const { return rect.w; }
+  inline int getHeight() const { return rect.h; }
+
+  TextureWrapper* crop(SDL_Rect)const;
 private:
   SDL_Renderer * renderer;
   SDL_Texture * texture;
-  int width;
-  int height;
+  SDL_Rect rect;
   TextureWrapper();
 };
 

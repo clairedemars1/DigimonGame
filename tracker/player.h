@@ -1,28 +1,21 @@
-#ifndef GOOD_GUY_H
-#define GOOD_GUY_H
+#ifndef PLAYER_H
+#define PLAYER_H
 
-#include <string>
-#include "twowaymultisprite.h"
+#include "twowayexplodingmultisprite.h"
 
-class Player : public TwoWayMultiSprite{
-	
+class Player: public TwoWayExplodingMultiSprite {
 public:
-	Player();
-	Player(const Player& rhs);
-	Player(const std::string& name);
-	void update(Uint32 ticks);
-	void notify(std::string event);
-
-private:
-	int yLimit;
+	Player(): TwoWayExplodingMultiSprite("player"){
+		// set non exploding sprite
+		setNonExplodingSprite();
+	}
 	
-	bool isJumping;
-	int yBeforeJump;
-	float gravity;
-	int minJumpVelY;
-	int maxJumpVelY;
-	bool jKeyDown;
-	bool jKeyUp; //stop adding height to the jump, ie stop starting the jump
+	//disallow
+	Player(const Player&)=delete;
+	Player& operator=(const Player&)=delete;
+	
+	virtual void setNonExplodingSprite();
+
 };
 
 #endif

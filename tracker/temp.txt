@@ -1,0 +1,22 @@
+#include "twowaymultisprite.h"
+#include "explodingSprite.h"
+
+// Meyers: prefer composition to inheritance
+// abstract base class
+class TwoWayExplodingMultiSprite {
+public:
+	TwoWayExplodingMultiSprite(const std::string&); 
+	TwoWayExplodingMultiSprite(const TwoWayMultiSprite&);
+	void explode() { isExploading = true; } // update() unsets it later
+	//~ void mIsExploading() { return isExploading; } // m for method
+	virtual void update(Uint32 ticks);
+	virtual void draw();
+	virtual void setNonExploadingSprite()=0; // pure virtual function, b/c I don't know what class -- with it's update function -- they want to use
+	//~ virtual void setExploadingSprite(){}; // they could override if they wanted a different explosion strategy, but i not need that now 
+	
+private:
+	Drawable* regularSprite;
+	Drawable* explodingSprite;
+	bool isExploading;
+	
+};

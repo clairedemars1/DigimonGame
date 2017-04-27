@@ -7,7 +7,6 @@
 #include <algorithm>
 #include "sprite.h"
 #include "faller.h"
-#include "player.h"
 #include "randomguy.h"
 #include "gamedata.h"
 #include "engine.h"
@@ -20,7 +19,6 @@ Engine::~Engine() {
   for (auto* it: fallers){
 	  delete it;
   }
-
 }
 
 Engine::Engine() :
@@ -57,13 +55,14 @@ Engine::Engine() :
 	  }
 	  
 	  // patrollers
-	  std::vector<int> patroller_x_positions = {};
 	  int worldWidth = Gamedata::getInstance().getXmlInt("world/width");
 	  int spaceBetween = Gamedata::getInstance().getXmlInt("patroller/spaceBetween");
 	  int numPatrollers =  worldWidth/spaceBetween;
 	  // place them at intervals
+	  patrollers.reserve(numPatrollers); // so not need copy constructor
 	  for (int i=0; i < numPatrollers; i++){
-		  patrollers.push_back(Patroller("gesomon", (i*spaceBetween)% worldWidth));
+		  // patrollers.push_back(Patroller("gesomon", (i*spaceBetween)% worldWidth));
+		  patrollers.emplace_back(Patroller("gesomon", (i*spaceBetween)% worldWidth));  // so not need copy constructor
 	  }
 
 	  //player
@@ -117,7 +116,7 @@ void Engine::update(Uint32 ticks) {
 
   for (auto& b: backgrounds) b.update();
   
-  for (auto& p: patrollers ) p.update(ticks); // need this?
+  for (auto& p: patrollers ) p.update(ticks);
 
   for(auto* s : fallers) s->update(ticks);
   player.update(ticks); 

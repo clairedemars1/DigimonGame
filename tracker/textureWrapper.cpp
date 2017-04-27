@@ -4,43 +4,39 @@
 #include "viewport.h"
 #include "renderContext.h"
 
+// malloy
+
 TextureWrapper::TextureWrapper( SDL_Texture* tex ) :
   renderer(RenderContext::getInstance()->getRenderer()),
   texture( tex ),
-  width(0), 
-  height(0)
-{ SDL_QueryTexture(texture, NULL, NULL, &width, &height); }
+  rect{0,0,0,0}
+{ SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h); }
 
 TextureWrapper::TextureWrapper( const TextureWrapper& frame ) :
   renderer(frame.renderer),
   texture(frame.texture), 
-  width(frame.width), 
-  height(frame.height)
+  rect(frame.rect)
 { }
 
 
 TextureWrapper& TextureWrapper::operator=(const TextureWrapper& rhs) {
   renderer = rhs.renderer;
   texture = rhs.texture;
-  width = rhs.width;
-  height = rhs.height;
+  rect = rhs.rect;
   return *this;
 }
 
 void TextureWrapper::draw(int x, int y) const {
-  x -= Viewport::getInstance().getX();
-  y -= Viewport::getInstance().getY();
-  SDL_Rect dest = {x, y, width, height };
-  SDL_RenderCopy(renderer, texture, NULL, &dest);
+  draw(x,y,1.0f);
 }
 
-void TextureWrapper::draw(int x, int y, float scaleFactor) const {
+void TextureWrapper::draw(int x, int y, float scale) const {
   x -= Viewport::getInstance().getX();
   y -= Viewport::getInstance().getY();
-  int temp_width = width*scaleFactor;
-  int temp_height = height*scaleFactor;
-  SDL_Rect dest = {x, y, temp_width, temp_height };
-  SDL_RenderCopy(renderer, texture, NULL, &dest);
+  int tempHeight = scale*rect.h;
+  int tempWidth = scale*rect.w;
+  SDL_Rect dest = {x, y, tempWidth, tempHeight};
+  SDL_RenderCopy(renderer, texture, &rect, &dest);
 }
 
 void TextureWrapper::draw(int x, int y, bool flip) const { // so you can't scale a bidirectional sprite, b/c they use diff functions
@@ -49,13 +45,30 @@ void TextureWrapper::draw(int x, int y, bool flip) const { // so you can't scale
   
   x -= Viewport::getInstance().getX();
   y -= Viewport::getInstance().getY();
-  SDL_Rect dest = {x, y, width, height };
+  SDL_Rect dest = {x, y, rect.w, rect.h };
   SDL_RenderCopyEx(renderer, texture, NULL, &dest, 0, NULL, sdl_flip);
 }
 
 void TextureWrapper::draw(int sx, int sy, int dx, int dy) const {
-  SDL_Rect src = { sx, sy, width, height };    
-  SDL_Rect dst = { dx, dy, width, height };
+  SDL_Rect src = { sx, sy, rect.w, rect.h };    
+  SDL_Rect dst = { dx, dy, rect.w, rect.h };
   SDL_RenderCopy(renderer, texture, &src, &dst);
+}
+
+TextureWrapper* TextureWrapper::crop(SDL_Rect sub)const{
+  if(sub.x+sub.w > rect.w || sub.y+sub.h > rect.h){
+    std::cerr << "Attempted to crop image with invalid geometry."
+              << std::endl
+              << "(0,0 + "<<rect.w << "x"<<rect.h<<")"
+              << " --> "
+              << "("<<sub.x<<","<<sub.y<<" + "<<sub.w << "x"<<sub.h<<")"
+              << std::endl;
+    return nullptr;
+  }
+
+  TextureWrapper* cloned = new TextureWrapper(*this);
+  cloned->rect = sub;
+
+  return cloned;
 }
 

@@ -21,19 +21,21 @@ OBJS = \
 	sprite.o \
 	multisprite.o \
 	twowaymultisprite.o \
-	player.o \
+	twowayexplodingmultisprite.o \
+	shootingSprite.o \
+	playernonexploding.o \
+	player.o\
 	patroller.o \
+	faller.o\
 	randomguy.o \
 	vector2f.o \
 	clock.o \
 	engine.o \
 	main.o \
-	faller.o\
-	sound.o\
-	bullet.o\
-	bulletPool.o\
-	collisionStrategy.o\
-	shootingSprite.o
+	sound.o \
+	bullet.o \
+	bulletPool.o \
+	collisionStrategy.o
 
 #~ name changes: frame -> textureWrapper 
 #~ goodguy -> player 

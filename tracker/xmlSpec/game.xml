@@ -101,6 +101,7 @@
 -->
 <player>
   <file>images/small_greymon.png</file>
+  <explosionFile></explosionFile>
   <bullet>fireball</bullet>
   <startLoc x="600" y="650"/>
   <frames>3</frames>

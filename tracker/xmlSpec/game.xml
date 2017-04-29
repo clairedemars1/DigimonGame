@@ -99,7 +99,7 @@
 <player>
   <file>images/small_greymon.png</file>
   <bullet>fireball</bullet>
-  <startLoc x="600" y="650"/>
+  <startLoc x="100" y="650"/>
   <frames>3</frames>
   <frameInterval>300</frameInterval>
   <speedX>400</speedX>

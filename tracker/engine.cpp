@@ -57,11 +57,12 @@ Engine::Engine() :
 	  int worldWidth = Gamedata::getInstance().getXmlInt("world/width");
 	  int spaceBetween = Gamedata::getInstance().getXmlInt("patroller/spaceBetween");
 	  int numPatrollers =  worldWidth/spaceBetween;
+	  int dont_hit_player = Gamedata::getInstance().getXmlInt("player/startLoc/x") + 100;
 	  // place them at intervals
 	  patrollers.reserve(numPatrollers); // so not need copy constructor
 	  for (int i=0; i < numPatrollers; i++){
 		  // patrollers.push_back(Patroller("gesomon", (i*spaceBetween)% worldWidth));
-		  patrollers.emplace_back(Patroller("gesomon", (i*spaceBetween)% worldWidth));  // so not need copy constructor
+		  patrollers.emplace_back(Patroller("gesomon", dont_hit_player + (i*spaceBetween)% worldWidth));  // so not need copy constructor
 	  }
 
 	  //player
@@ -127,14 +128,9 @@ void Engine::update(Uint32 ticks) {
   // collisions
   for (auto it=patrollers.begin(); it < patrollers.end(); it++) {
 	  if (strategy_p->execute(*it, player) ){
-		  // player explodes
-		  player.explode();
-		  //~ std::cout << player.getIsExploding() << std::endl;
-		  
+		  player.explode();		  
 	  }
-	  //~ std::cout << "end loop" << std::endl;
   }
-  
 }
 
 void Engine::play() {

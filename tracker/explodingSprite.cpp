@@ -6,9 +6,7 @@
 ExplodingSprite::ExplodingSprite(const Sprite& s) :
   Sprite(s),
   chunks(), 
-  freeList(),
-  isExploding_var(false)
-  
+  freeList()
   {
   makeChunks(
     Gamedata::getInstance().getXmlInt(s.getName()+"/chunk/size")
@@ -19,8 +17,7 @@ ExplodingSprite::ExplodingSprite(const Sprite& s) :
 ExplodingSprite::ExplodingSprite(const ExplodingSprite& rhs): 
 	Sprite(rhs),
 	chunks(),
-	freeList(),
-	isExploding_var(false)
+	freeList()
 	{
 	  makeChunks(
 		Gamedata::getInstance().getXmlInt(rhs.getName()+"/chunk/size")
@@ -42,6 +39,7 @@ void ExplodingSprite::draw() const {
   }
 }
 
+/*
 void ExplodingSprite::setPosition(const Vector2f& pos) {
 	
 	if ( isExploding() ){
@@ -59,7 +57,6 @@ void ExplodingSprite::setPosition(const Vector2f& pos) {
 		// Read the SDL_Surface so we can chunk it:
 		int source_y = 0;
 		int source_x = 0;
-		//~ std::cout << "chunk count" << chunkCount() << std::endl;
 		auto chunk_it = chunks.begin();
 		int counter = 0;
 		  // instead of making a new chunk, just change the x and y
@@ -71,15 +68,13 @@ void ExplodingSprite::setPosition(const Vector2f& pos) {
 				source_y += chunk_height;
 			}
 			source_x += chunk_width;
-		}
-		//~ std::cout << "did I set pos of all chunks? (should be 81) " <<  (counter ) << std::endl;
-	
+		}	
 	}
 }
+* */
 
 
 void ExplodingSprite::update(Uint32 ticks) {
-  if (not isExploding_var) isExploding_var = true; // update only gets called when we're exploding
   std::list<Chunk*>::iterator ptr = chunks.begin();
   while (ptr != chunks.end()) {
     (*ptr)->update(ticks);
@@ -89,11 +84,11 @@ void ExplodingSprite::update(Uint32 ticks) {
     }   
     else ++ptr;
   }
-  if ( chunkCount() == 0) {
-	  // say we're done and swap the lists (constant time)
-	  isExploding_var = false;
-	  chunks.swap(freeList);
-  }
+  //~ if ( chunkCount() == 0) {
+	  //~ // say we're done and swap the lists (constant time)
+	  //~ isExploding_var = false;
+	  //~ chunks.swap(freeList);
+  //~ }
 }
 
 void ExplodingSprite::makeChunks(unsigned int n) { 

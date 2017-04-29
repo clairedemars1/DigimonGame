@@ -4,12 +4,14 @@ priorities
 - DONE enable jumping, check that he cannot fly
 - DONE enable aswd only if he's in y range, or at the top and moving down
 - put obstacles (bushes or taller rocks), with collision detection so velocity -> 0 if he hits them
-- add patrolling bad guys, if he lands near them they chase him
-- if they catch him he explodes
+- DONEadd patrolling bad guys, 
+- if he lands near them they chase him
+- DONEif they catch him he explodes
 - bullets: if they collide with bad guys they explode
 - god mode
 - reset
-- music and noise on explosion
+- DONE music
+- noise on explosion
 - make jump multi-level
 
 - digivices falling from sky, they explode and you gain points if they hit you

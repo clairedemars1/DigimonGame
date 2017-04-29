@@ -51,7 +51,6 @@ Engine::Engine() :
 	  int n = Gamedata::getInstance().getXmlInt("numOfFallingThings");
 	  for (int i=0; i<n; i++){
 		 fallers.push_back(new Faller("patamon"));
-		 //~ std::cout << "new faller" << std::endl;
 	  }
 	  
 	  // patrollers
@@ -128,8 +127,9 @@ void Engine::update(Uint32 ticks) {
   // collisions
   for (auto it=patrollers.begin(); it < patrollers.end(); it++) {
 	  if (strategy_p->execute(*it, player) ){
-		  //~ std::cout << "collision" <<std::endl;
 		  // player explodes
+		  player.explode();
+		  //~ std::cout << player.getIsExploding() << std::endl;
 		  
 	  }
 	  //~ std::cout << "end loop" << std::endl;

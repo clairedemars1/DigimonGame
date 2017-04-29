@@ -37,10 +37,7 @@
 	<y>30</y>
 </hud>
 
-<chunk>
-  <size>9</size>
-  <distance>200</distance>
-</chunk>
+
 
 <!--backgrounds-->
 <world>
@@ -101,7 +98,6 @@
 -->
 <player>
   <file>images/small_greymon.png</file>
-  <explosionFile></explosionFile>
   <bullet>fireball</bullet>
   <startLoc x="600" y="650"/>
   <frames>3</frames>
@@ -116,6 +112,18 @@
   <minJumpSpeedY>-500</minJumpSpeedY>
   <maxJumpSpeedY>-700</maxJumpSpeedY>
 </player>
+
+<player_explosion>
+  <file>images/small_greymon_explosion.png</file>
+  <startLoc x="600" y="650"/>
+  <speedX>50</speedX>
+  <speedY>50</speedY>
+  <transparency>true</transparency>
+  <chunk>
+	  <size>9</size>
+	  <distance>200</distance>
+</chunk>
+</player_explosion>
 
 
 

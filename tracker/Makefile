@@ -21,9 +21,9 @@ OBJS = \
 	sprite.o \
 	multisprite.o \
 	twowaymultisprite.o \
+	explodingSprite.o \
 	twowayexplodingmultisprite.o \
 	shootingSprite.o \
-	playernonexploding.o \
 	player.o\
 	patroller.o \
 	faller.o\
@@ -35,7 +35,8 @@ OBJS = \
 	sound.o \
 	bullet.o \
 	bulletPool.o \
-	collisionStrategy.o
+	collisionStrategy.o \
+	chunk.o
 
 #~ name changes: frame -> textureWrapper 
 #~ goodguy -> player 

@@ -43,7 +43,7 @@ public:
   void setName(const std::string& n) { name = n;    }
 
   float getX() const  { return position[0]; }
-  virtual void  setX(float x) { position[0] = x;    }
+  void  setX(float x) { position[0] = x;    }
 
   float getY() const  { return position[1]; }
   void  setY(float y) { position[1] = y;    }
@@ -56,7 +56,7 @@ public:
   void  setVelocity(const Vector2f& vel) { velocity = vel;  }
   
   const Vector2f& getPosition() const    { return position; }
-  void  setPosition(const Vector2f& pos) { position = pos;  }
+  virtual void  setPosition(const Vector2f& pos) { position = pos;  }
   
   float getScaleFactor() const { return scaleFactor; }
   void setScaleFactor(float s){  scaleFactor = s; }

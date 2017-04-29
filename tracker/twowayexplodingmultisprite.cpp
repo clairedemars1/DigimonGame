@@ -1,12 +1,10 @@
 #include "twowayexplodingmultisprite.h"
 
 TwoWayExplodingMultiSprite::TwoWayExplodingMultiSprite(const std::string& name): 
-	nonExplodingSprite(NULL), 
-	explodingSprite(new Sprite(name+"/explosionFile")),
+	TwoWayMultiSprite(name),
+	explodingSprite( Sprite(name+"_explosion") ),
 	isExploding(false)
-	{
-		//~ std::cout << "\ndon't forget to call setNonExplodingSprite()!!!!!!!" << std::endl;
-	}
+	{}
 
 //~ TwoWayExplodingMultiSprite::TwoWayExplodingMultiSprite(const TwoWayExplodingMultiSprite& rhs): 
 	//~ regularSprite(), 
@@ -14,34 +12,35 @@ TwoWayExplodingMultiSprite::TwoWayExplodingMultiSprite(const std::string& name):
 	//~ isExploding(false)
 	//~ {}
 
-
-TwoWayExplodingMultiSprite::~TwoWayExplodingMultiSprite(){
-	delete nonExplodingSprite;
-	delete explodingSprite;
-}
-
-
 // change update and draw so they expode the sprite when appropriate
 void TwoWayExplodingMultiSprite::update(Uint32 ticks){
 	
-	if (isExploding and not (dynamic_cast<ExplodingSprite*>(explodingSprite))->isExploding()) { isExploding = false; }
-
 	if (isExploding){
-		// update the exploding sprite
-		explodingSprite->update( ticks);
+		if ( not explodingSprite.isExploding() ){ // only change position the first time
+			explodingSprite.setPosition( getPosition() );
+		}
+		
+		explodingSprite.update( ticks ); // if expl sprite is done, he'll say so
+		
+		// idea: if it thinks it's exploding but the guy doing the exploding is actually done, tell it it's not actually exploding
+		// note: put here else would set isExploding = false as soon as you set it to true
+		if (not (explodingSprite.isExploding()) ) { 
+			isExploding = false; 
+			do_after_explosion();
+		}
 	} else {
-		// update the regular sprite
-		nonExplodingSprite->update(ticks);
-		//~ TwoWayMultiSprite::update(Uint32 ticks);
-		//todo: update regular sprite
+		update_helper(ticks);
 	}
 	
+	
+		
+
 }
 
-void TwoWayExplodingMultiSprite::draw(){
+void TwoWayExplodingMultiSprite::draw() const {
 	if (isExploding){
-		explodingSprite->draw();
+		explodingSprite.draw();
 	} else {
-		nonExplodingSprite->draw();
+		TwoWayMultiSprite::draw();
 	}
 }

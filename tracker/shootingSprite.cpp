@@ -16,11 +16,21 @@ ShootingSprite::ShootingSprite(const ShootingSprite& s) :
 { }
 
 void ShootingSprite::shoot() { 
-  float x = getX()+getFrame()->getWidth();
   float y = getY()+getFrame()->getHeight()/2;
+  float x;
+  int x_speed = getVelocityX();;
+  if ( getVelocityX() > 0 ){ // insufficient
+	x = getX()+getFrame()->getWidth();
+	x_speed += minSpeed;
+
+  } else {
+	x = getX()-getFrame()->getWidth();
+	x_speed -= minSpeed;
+  }
+ 
   // I'm not adding minSpeed to y velocity:
   bullets.shoot( Vector2f(x, y), 
-    Vector2f(minSpeed+getVelocityX(), 0)
+    Vector2f(x_speed, 0)
   );
 }
 

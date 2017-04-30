@@ -23,7 +23,6 @@ OBJS = \
 	twowaymultisprite.o \
 	explodingSprite.o \
 	twowayexplodingmultisprite.o \
-	shootingSprite.o \
 	player.o\
 	patroller.o \
 	faller.o\

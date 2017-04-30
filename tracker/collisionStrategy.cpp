@@ -2,14 +2,30 @@
 #include <algorithm>
 #include "ioMod.h"
 #include "collisionStrategy.h"
+#include "twowayexplodingmultisprite.h"
 #include "viewport.h"
+
+bool CollisionStrategy::execute(
+	const Drawable& obj1, const Drawable& obj2) const {
+	
+	// if either guy is exploding now, say no collision
+	const TwoWayExplodingMultiSprite* obj1_can_explode = dynamic_cast<const TwoWayExplodingMultiSprite*>(&obj1); 
+	const TwoWayExplodingMultiSprite* obj2_can_explode = dynamic_cast<const TwoWayExplodingMultiSprite*>(&obj2);
+	if (obj1_can_explode && obj1_can_explode -> getIsExploding() ){
+		return false;
+	} else if (obj2_can_explode && obj2_can_explode -> getIsExploding()){
+		return false;
+	}
+	// else do regular collision checking
+	return execute_helper(obj1, obj2);
+}
 
 void RectangularCollisionStrategy::draw() const {
   IOmod::
   getInstance().writeText("Strategy: Rectangular Collision", 320, 30);
 }
 
-bool RectangularCollisionStrategy::execute(
+bool RectangularCollisionStrategy::execute_helper(
       const Drawable& obj1, const Drawable& obj2) const {
   float left1 = obj1.getX();
   float left2 = obj2.getX();
@@ -38,7 +54,7 @@ void MidPointCollisionStrategy::draw() const {
   getInstance().writeText("Strategy: Distance from Middle", 320, 30);
 }
 
-bool MidPointCollisionStrategy::execute(
+bool MidPointCollisionStrategy::execute_helper(
       const Drawable& obj1, const Drawable& obj2) const {
   int COLLISION_DISTANCE = 
     obj1.getFrame()->getWidth()/2 + obj2.getFrame()->getWidth()/2;

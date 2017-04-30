@@ -1,36 +1,27 @@
 #include <iostream>
 #include "gamedata.h"
-#include "twowaymultisprite.h"
+#include "twowayexplodingmultisprite.h"
 
 
-class Patroller: public TwoWayMultiSprite {
+//~ class Patroller: public TwoWayMultiSprite {
+class Patroller: public TwoWayExplodingMultiSprite {
 public:
+	// disallow
 	Patroller()=delete; // they need to specify the sprite
-	Patroller(std::string xml_name, int x_pos): 
-		TwoWayMultiSprite(xml_name), 
-		leftEndPoint(x_pos),
-		patrolRange(Gamedata::getInstance().getXmlInt(xml_name+"/patrolRange") ){
-			leftEndPoint = x_pos; // set leftmost point of range
-			
-			setX(x_pos + rand()%patrolRange); // so not in sync
-			//~ std::cout << origX << " " <<getX() << std::endl;
+	Patroller(const Patroller&)=delete;
 
-			setYRand();
-			advanceFrameRandomly(); // so really not in sync
-			
-		}
-	Patroller(const Patroller& rhs):
-		TwoWayMultiSprite(rhs),
-		leftEndPoint(rhs.leftEndPoint),
-		patrolRange(rhs.patrolRange){}
-	virtual void update(Uint32 ticks);
-
+	Patroller(std::string xml_name, int x_pos);
+	virtual void update_helper(Uint32 ticks);
+	virtual void do_after_explosion();
 
 private:
 	int leftEndPoint;
 	int patrolRange;
 	
+	void setXRandWithinRange(); // semi-randomly, really
+	void setYRand(); // semi-randomly, really
 	void advanceFrameRandomly();
-	void setYRand();
+
+
 };
 

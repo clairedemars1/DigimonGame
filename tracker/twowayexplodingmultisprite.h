@@ -17,7 +17,7 @@ public:
 	void explode();
 	virtual void update(Uint32 ticks);
 	virtual void draw() const;
-	bool getIsExploding() { return isExploding; }
+	bool getIsExploding() const { return isExploding; }
 	
 	//make the class abstract	
 	virtual void update_helper(Uint32 ticks)=0; // add to the update function
@@ -26,7 +26,7 @@ public:
 private:
 	ExplodingSprite* explodingSprite;
 	bool isExploding;
-	
+		
 };
  
 #endif

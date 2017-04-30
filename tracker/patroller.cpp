@@ -1,7 +1,27 @@
 #include <iostream>
 #include "patroller.h"
 
-void Patroller::update(Uint32 ticks){
+Patroller::Patroller(std::string xml_name, int x_pos): 
+	TwoWayExplodingMultiSprite(xml_name), 
+	leftEndPoint(x_pos),
+	patrolRange(Gamedata::getInstance().getXmlInt(xml_name+"/patrolRange") ){
+		leftEndPoint = x_pos; // set leftmost point of range
+		
+		// make out of sync
+		setXRandWithinRange();
+		setYRand();
+		advanceFrameRandomly();
+	}
+		
+void Patroller::setXRandWithinRange(){
+	setX(leftEndPoint + rand()%patrolRange); // so not in sync
+}
+
+void Patroller::do_after_explosion(){
+	setXRandWithinRange();
+}
+		
+void Patroller::update_helper(Uint32 ticks){
 	// stay in designated area, 1 patrol length right of starting loc
 	advanceFrame(ticks);
 
@@ -17,6 +37,8 @@ void Patroller::update(Uint32 ticks){
 		setVelocityX( -fabs( getVelocityX() ) );
 	}  
 }
+
+
 
 
 void Patroller::advanceFrameRandomly(){

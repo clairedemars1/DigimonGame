@@ -12,13 +12,16 @@
 #include "engine.h"
 #include "shootingSprite.h"
 
-//~ ShootingSprite test("player");
 
 Engine::~Engine() { 
   std::cout << "Terminating program" << std::endl;
-  for (auto* it: fallers){
-	  delete it;
+  for (auto* p: fallers){
+	  delete p;
   }
+  for (auto p: patrollers){
+	  delete p;
+  }
+  
 }
 
 Engine::Engine() :
@@ -35,7 +38,8 @@ Engine::Engine() :
   hud(renderer),
   strategy_p(new RectangularCollisionStrategy),
   makeVideo( false ),
-  frameGenerator()
+  frameGenerator(),
+  isInGodMode( false)
 {	
   // init
 	  // seed rand		
@@ -58,11 +62,8 @@ Engine::Engine() :
 	  int spaceBetween = Gamedata::getInstance().getXmlInt("patroller/spaceBetween");
 	  int numPatrollers =  worldWidth/spaceBetween;
 	  int dont_hit_player = Gamedata::getInstance().getXmlInt("player/startLoc/x") + 100;
-	  // place them at intervals
-	  patrollers.reserve(numPatrollers); // so not need copy constructor
-	  for (int i=0; i < numPatrollers; i++){
-		  // patrollers.push_back(Patroller("gesomon", (i*spaceBetween)% worldWidth));
-		  patrollers.emplace_back(Patroller("gesomon", dont_hit_player + (i*spaceBetween)% worldWidth));  // so not need copy constructor
+	  for (int i=0; i < numPatrollers; i++){ // place them at intervals
+		  patrollers.push_back(new Patroller("gesomon", dont_hit_player + (i*spaceBetween)% worldWidth));  
 	  }
 
 	  //player
@@ -93,10 +94,9 @@ void Engine::draw() const {
   }
   
   player.draw();
-  //~ test.draw();
 
   for (auto& p: patrollers){
-	  p.draw();
+	  p->draw();
   }
   
   // hud and info
@@ -109,27 +109,30 @@ void Engine::draw() const {
   SDL_RenderPresent(renderer);
 }
 
-//~ void Engine::update(Uint32 ticks,  const std::array<char, 2> &directions) {
 void Engine::update(Uint32 ticks) {
 	
   if ( makeVideo ) frameGenerator.makeFrame();
 
   for (auto& b: backgrounds) b.update();
   
-  for (auto& p: patrollers ) p.update(ticks);
+  for (auto& p: patrollers ) p->update(ticks);
 
   for(auto* s : fallers) s->update(ticks);
   player.update(ticks); 
-  //~ test.update(ticks);
   hud.update();
   
   viewport.update(); // always update viewport last
   
   // collisions
   for (auto it=patrollers.begin(); it < patrollers.end(); it++) {
-	  if (strategy_p->execute(*it, player) ){
-		  player.explode();		  
-	  }
+		if ( not isInGodMode ){
+			if (strategy_p->execute(**it, player) ){ // did they kill player?
+			  player.explode();		  
+			}
+		}
+		if (player.isBulletHitting(static_cast<Drawable*>( &(**it) )) ){ // did player shoot them
+		  (**it).explode();
+		}
   }
 }
 
@@ -155,20 +158,18 @@ void Engine::play() {
 			  done = true;
 			  break;
 			}
-			
-			// pause
-			if ( keystate[SDL_SCANCODE_P] ) {
-			  if ( clock.isPaused() ) clock.unpause();
-			  else clock.pause();
-			}
 			// show hud
 			if ( keystate[SDL_SCANCODE_F1] ) {
 				hud.show();
 			}
-			if ( keystate[SDL_SCANCODE_SPACE] ) {
+			//music
+			if ( keystate[SDL_SCANCODE_M] ) {
 				sound.toggleMusic();
 			}
-			
+			// godmode
+			if (keystate[SDL_SCANCODE_G] ){
+				isInGodMode = not isInGodMode;
+			}
 			// capture frames
 			if (keystate[SDL_SCANCODE_F4] && !makeVideo) {
 			  std::cout << "Initiating frame capture" << std::endl;
@@ -190,7 +191,6 @@ void Engine::play() {
 				player.notify("jKeyUp");
 			}
 	  }
-
     } // end while
     
 	

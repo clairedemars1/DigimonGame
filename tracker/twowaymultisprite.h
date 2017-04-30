@@ -14,7 +14,14 @@ public:
 	// therefore need to change another function that always gets called - I'll use draw - (or make a new one and call it from main)
 	// I'll use draw() so I can use SDL's built in flipping
 	virtual void draw() const;
+	virtual void update(Uint32 ticks);
+	
+protected:
+	void setIsFacingRight();
+	bool mIsFacingRight() { return isFacingRight; } // m for method
 
+private:
+	bool isFacingRight;
 	
 };
 #endif

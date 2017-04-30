@@ -29,6 +29,9 @@ void TwoWayExplodingMultiSprite::explode(){
 // change update and draw so they expode the sprite when appropriate
 void TwoWayExplodingMultiSprite::update(Uint32 ticks){
 	
+	// does not call base class update
+	setIsFacingRight();
+	
 	if (isExploding){
 		explodingSprite->update( ticks );
 		if (not explodingSprite->isExploding() ){ // explosion's done

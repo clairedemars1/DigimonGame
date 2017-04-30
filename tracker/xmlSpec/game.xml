@@ -115,7 +115,7 @@
 
 <player_explosion>
   <file>images/small_greymon_explosion.png</file>
-  <startLoc x="600" y="650"/>
+  <startLoc x="0" y="0"/>
   <speedX>50</speedX>
   <speedY>50</speedY>
   <transparency>true</transparency>
@@ -129,10 +129,9 @@
 
 <fireball>
   <file>images/fireball.xcf</file>
-  <interval>300</interval>
-  <frames>2</frames>
+  <interval>150</interval>
   <distance>320</distance>
-  <startLoc x="100" y="100"/>
+  <startLoc x="0" y="0"/>
   <speedX>200</speedX>
   <speedY>0</speedY>
   <strategy>rectangular</strategy>
@@ -154,6 +153,20 @@
   <transparency>true</transparency>
   <patrolRange>300</patrolRange>
 </gesomon>
+
+<gesomon_explosion>
+	<file>images/gesomon_2_explosion.png</file>
+	<startLoc x="0" y="0"/>
+	<speedX>100</speedX>
+	<speedY>0</speedY>
+	<transparency>true</transparency>
+	<chunk>
+		  <size>9</size>
+		  <distance>200</distance>
+	</chunk>
+</gesomon_explosion>
+
+
 
 <digivolve>
   <file>images/digivolve.png</file>

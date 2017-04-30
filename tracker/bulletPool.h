@@ -1,3 +1,6 @@
+#ifndef BULLET_POOL_H
+#define BULLET_POOL_H
+
 #include <list>
 #include "bullet.h"
 #include "collisionStrategy.h"
@@ -15,6 +18,7 @@ public:
   unsigned int freeCount()  const { return freeList.size(); }
   bool shooting() const { return bulletList.empty(); }
   bool collidedWith(const Drawable* obj) const;
+  
 private:
   std::string name;
   CollisionStrategy* strategy;
@@ -25,3 +29,5 @@ private:
 
   BulletPool& operator=(const BulletPool&);   // (Item 6)
 };
+
+#endif

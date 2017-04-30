@@ -46,12 +46,11 @@ void Sprite::update(Uint32 ticks) {
   if ( getY() > worldHeight-frameHeight) {
     setVelocityY( -std::abs( getVelocityY() ) );
   }
-
   if ( getX() < 0) {
     setVelocityX( std::abs( getVelocityX() ) );
   }
   if ( getX() > worldWidth-frameWidth) {
     setVelocityX( -std::abs( getVelocityX() ) );
   }  
-  // change to keepInWorld();
+  //don't change to keepInWorld(), since you want bounce capabilities
 }

@@ -20,7 +20,8 @@ public:
 	bool getIsExploding() const { return isExploding; }
 	
 	//make the class abstract	
-	virtual void update_helper(Uint32 ticks)=0; // add to the update function
+	virtual void update_helper_non_explosion(Uint32 ticks)=0; // add to the update function
+	virtual void update_helper_always(){};
 	virtual void do_after_explosion()=0;
 
 private:

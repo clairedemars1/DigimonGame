@@ -16,8 +16,13 @@ Player::Player(): TwoWayExplodingMultiSprite("player"),
 	jKeyUp(false),
 	bulletName( Gamedata::getInstance().getXmlStr("player/bullet") ),
 	bullets( bulletName ),
-	minSpeed( Gamedata::getInstance().getXmlInt(bulletName+"/speedX") )
+	minSpeed( Gamedata::getInstance().getXmlInt(bulletName+"/speedX") ),
+	observers()
 	{}
+
+Player::~Player(){
+	// engine deletes observers
+}
 
 void Player::draw() const {
 	TwoWayExplodingMultiSprite::draw();
@@ -25,7 +30,7 @@ void Player::draw() const {
 	
 }
 
-void Player::notify(std::string event){
+void Player::receive_command(std::string event){
 	// event options: jKeyDown, jKeyUp
 	if (event == "jKeyDown") jKeyDown = true;
 	if (event == "jKeyUp") jKeyUp = true;
@@ -56,7 +61,8 @@ bool Player::isBulletHitting(const Drawable* obj) const {
 }
 
 //~ void Player::update(Uint32 ticks, const std::array<char, 2> &directions){
-void Player::update_helper(Uint32 ticks){
+void Player::update_helper_non_explosion(Uint32 ticks){
+	
 	std::array<char, 2> directions;
 	const Uint8* keystate; 
 
@@ -133,7 +139,10 @@ void Player::update_helper(Uint32 ticks){
 		shoot();
 	}
 	bullets.update(ticks);
-	 
+}
+void Player::update_helper_always(){
+	
+	notifyObservers();
 }
 
 void Player::do_after_explosion(){
@@ -142,4 +151,20 @@ void Player::do_after_explosion(){
 	setY(Gamedata::getInstance().getXmlInt("player/startLoc/y"));
 }
 
+void Player::notifyObservers(){
+	for (auto o: observers){
+		o->notify(getPosition(), getIsExploding());
+	}
+}
+
+void Player::detach(const Patroller* find_me){
+	auto it = observers.begin();
+	while (it != observers.end()){
+		if( *it == find_me ){
+			it =observers.erase(it);
+			return;
+		}
+		it++;
+	}
+}
 

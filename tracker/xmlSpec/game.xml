@@ -138,9 +138,9 @@
 </fireball>
 
 <patroller>
-	<howMany>10</howMany> <!-- todo remoove -->
 	<yLimit>601</yLimit>
 	<spaceBetween>700</spaceBetween>
+	<sightDistance>800</sightDistance>
 </patroller>
 
 <gesomon>
@@ -149,7 +149,7 @@
   <frames>4</frames>
   <frameInterval>300</frameInterval>
   <speedX>100</speedX>
-  <speedY>0</speedY>
+  <speedY>-100</speedY>
   <transparency>true</transparency>
   <patrolRange>300</patrolRange>
 </gesomon>

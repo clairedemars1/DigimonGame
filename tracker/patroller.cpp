@@ -1,16 +1,30 @@
 #include <iostream>
 #include "patroller.h"
 
-Patroller::Patroller(std::string xml_name, int x_pos): 
+float distance(float x1, float y1, float x2, float y2) {
+  float x = x1-x2;
+  float y = y1-y2;
+  return hypot(x, y);
+}
+
+Patroller::Patroller(std::string xml_name, int x_pos, int player_width, int player_height):
 	TwoWayExplodingMultiSprite(xml_name), 
+	origPos(),
 	leftEndPoint(x_pos),
-	patrolRange(Gamedata::getInstance().getXmlInt(xml_name+"/patrolRange") ){
+	patrolRange(Gamedata::getInstance().getXmlInt(xml_name+"/patrolRange") ),
+	currentMode(NORMAL),
+	playerPos(),
+	playerWidth(player_width),
+	playerHeight(player_height),
+	playerIsExploding(false)
+	{
 		leftEndPoint = x_pos; // set leftmost point of range
-		
 		// make out of sync
 		setXRandWithinRange();
 		setYRand();
 		advanceFrameRandomly();
+		origPos = getPosition();
+
 	}
 		
 void Patroller::setXRandWithinRange(){
@@ -20,38 +34,61 @@ void Patroller::setXRandWithinRange(){
 void Patroller::do_after_explosion(){
 	setXRandWithinRange();
 }
-		
-void Patroller::update_helper(Uint32 ticks){
-	// stay in designated area, 1 patrol length right of starting loc
-	advanceFrame(ticks);
 
-	Vector2f incr = getVelocity() * static_cast<float>(ticks) * 0.001;
-	setPosition(getPosition() + incr);	
-	
-	
-	// keep in patrolling range
-	if ( getX() < leftEndPoint) {
-		setVelocityX( fabs( getVelocityX() ) );
-	}
-	if ( getX() > (leftEndPoint + patrolRange) ) {
-		setVelocityX( -fabs( getVelocityX() ) );
-	}  
+void Patroller::goLeft()  { // todo: why this check?
+  if (getX() > 0) setVelocityX( -abs(getVelocityX()) ); 
 }
+void Patroller::goRight() { setVelocityX( fabs(getVelocityX()) ); }
+void Patroller::goUp()    { setVelocityY( -fabs(getVelocityY()) ); 
+	 }
+void Patroller::goDown()  { setVelocityY( fabs(getVelocityY()) ); }
+	
+void Patroller::update_helper_non_explosion(Uint32 ticks){
+	advanceFrame(ticks);
+	
+	float x= getX()+getFrameWidth()/2;
+	float y= getY()+getFrameHeight()/2;
+	float player_x= playerPos[0]+playerWidth/2;
+	float player_y= playerPos[1]+playerHeight/2;
+	float distanceToEnemy = ::distance( x, y, player_x, player_y );
 
-
-
+	if ( currentMode == NORMAL ){ // move in patrol range
+		
+		if(distanceToEnemy < sightDistance){	currentMode = CHASE;  }
+			
+		// only move horiz
+		int incr = getVelocityX()  * static_cast<float>(ticks) * 0.001;
+		setX(getX() + incr);
+		
+		if ( getX() < leftEndPoint) {
+			setVelocityX( fabs( getVelocityX() ) );
+		}
+		if ( getX() > (leftEndPoint + patrolRange) ) {
+			setVelocityX( -fabs( getVelocityX() ) );
+		}  
+	} else if (currentMode == CHASE){ // chase player
+		if(distanceToEnemy > sightDistance   ||    playerIsExploding ){ stopChase(); }
+		else {
+		  if ( x < player_x ) goRight();
+		  if ( x > player_x ) goLeft();
+		  if ( y < player_y ) goDown();
+		  if ( y > player_y ) {goUp(); 
+			   }
+		  
+		  Vector2f incr = getVelocity() * static_cast<float>(ticks) * 0.001;
+		  setPosition(getPosition() + incr);	
+		  
+		}
+	}
+}
 
 void Patroller::advanceFrameRandomly(){
 		// move to a diff frame
 	int r = rand()% 2;
 	if (r == 0 ) {
-		//~ std::cout << "case 1" << std::endl;
-		//~ advanceFrame();
-	} else if (r == 1 ){
-		//~ std::cout << "case 2" << std::endl;
 		advanceFrame();
 		advanceFrame();
-	} 
+	}
 }
 
 void Patroller::setYRand(){
@@ -63,3 +100,13 @@ void Patroller::setYRand(){
 	setY( upLim + rand()%(lowLim - upLim) ); 
 	
 }
+
+void Patroller::stopChase(){
+	// reset velocities  & position
+	setPosition(origPos);
+	setVelocity( Vector2f(Gamedata::getInstance().getXmlInt(getName()+"/speedX"), 
+		Gamedata::getInstance().getXmlInt(getName()+"/speedY")) );
+	
+	currentMode = NORMAL;
+}
+

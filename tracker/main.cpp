@@ -3,6 +3,7 @@
 
 FrameFactory*  FrameFactory::instance = NULL;
 RenderContext* RenderContext::instance = NULL;
+float Patroller::sightDistance = Gamedata::getInstance().getXmlInt("patroller/sightDistance"); // define Patroller's static var
 
 int main(int, char*[]) {
    try {

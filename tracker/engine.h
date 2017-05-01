@@ -36,7 +36,7 @@ private:
   std::vector<Patroller*> patrollers; // pointers so we don't need to define a copy constructor just to put them in a vector (reserve and emplace_back does work alternatively, but this compiler refuses to accept that)
   Player player;
   Hud hud;
-  CollisionStrategy* strategy_p; // pointer so you can change it to do a different stategy
+  CollisionStrategy* strategy_p; // pointer so can change stategies
 
 
   bool makeVideo;

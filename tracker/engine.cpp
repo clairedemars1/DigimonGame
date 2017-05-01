@@ -60,10 +60,20 @@ Engine::Engine() :
 	  // patrollers
 	  int worldWidth = Gamedata::getInstance().getXmlInt("world/width");
 	  int spaceBetween = Gamedata::getInstance().getXmlInt("patroller/spaceBetween");
-	  int numPatrollers =  worldWidth/spaceBetween;
+	  //~ int numPatrollers =  worldWidth/spaceBetween; // todo put back
+	  int numPatrollers =  1;
 	  int dont_hit_player = Gamedata::getInstance().getXmlInt("player/startLoc/x") + 100;
+	  int playerWidth = player.getFrameWidth();
+	  int playerHeight = player.getFrameHeight();
 	  for (int i=0; i < numPatrollers; i++){ // place them at intervals
-		  patrollers.push_back(new Patroller("gesomon", dont_hit_player + (i*spaceBetween)% worldWidth));  
+		  patrollers.push_back(
+			  new Patroller("gesomon", 
+				  dont_hit_player + (i*spaceBetween)% worldWidth,
+				  playerWidth,
+				  playerHeight
+				  )
+		  );
+		  player.attach(patrollers.front()); // as an observer  
 	  }
 
 	  //player
@@ -180,15 +190,15 @@ void Engine::play() {
 			  makeVideo = false;
 			}
 			
-			//notify player: jump
+			//receive_command player: jump
 			if ( keystate[SDL_SCANCODE_J] ){
-				player.notify("jKeyDown");
+                player.receive_command("jKeyDown");
 			}
       } 
       if (event.type == SDL_KEYUP) {
-		  //notify player: jump
+		  //receive_command player: jump
 			if ( keystate[SDL_SCANCODE_J] ){
-				player.notify("jKeyUp");
+                player.receive_command("jKeyUp");
 			}
 	  }
     } // end while

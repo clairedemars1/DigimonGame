@@ -82,7 +82,10 @@ void Player::update_helper_non_explosion(Uint32 ticks){
 			isJumping = true; 
 			//~ std::cout << "setting isJumping" <<std::endl;
 			
-			setVelocityX(Gamedata::getInstance().getXmlInt("player/jumpSpeedX"));
+			bool vel_is_neg = (getVelocityX() < 0);
+			int multiply_by = 1;
+			if (vel_is_neg) multiply_by = -1;
+			setVelocityX(multiply_by * Gamedata::getInstance().getXmlInt("player/jumpSpeedX"));
 			setVelocityY(maxJumpVelY);
 		}
 	}
@@ -119,7 +122,11 @@ void Player::update_helper_non_explosion(Uint32 ticks){
 		
 		// if we get below y where started jump, then actually end jump
 		if (getY() > yBeforeJump){
-			setVelocity( Vector2f(Gamedata::getInstance().getXmlInt(getName()+"/speedX"), 
+			bool vel_is_neg = (getVelocityX() < 0);
+			int multiply_by = 1;
+			if (vel_is_neg) multiply_by = -1;
+			
+			setVelocity( Vector2f(multiply_by * Gamedata::getInstance().getXmlInt(getName()+"/speedX"), 
 					Gamedata::getInstance().getXmlInt(getName()+"/speedY")) );
 			isJumping = false;
 		}

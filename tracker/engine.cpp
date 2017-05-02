@@ -121,7 +121,15 @@ void Engine::draw() const {
   strm << Gamedata::getInstance().getXmlStr("window/title");
   io.writeText(strm.str(), 30, 440);
   hud.draw(); 
-
+	
+ if (player.getHasWon() ){
+	  std::stringstream stream;
+	  stream.str("");
+	  stream << "You Won!";
+	  io.setFontSize(70);
+	  io.writeText(stream.str(), 265, 200);
+	  io.reSetFontSize();
+  }
   viewport.draw();
   SDL_RenderPresent(renderer);
 }
@@ -129,7 +137,7 @@ void Engine::draw() const {
 void Engine::update(Uint32 ticks) {
 	
   if ( makeVideo ) frameGenerator.makeFrame();
-
+ 
   for (auto& b: backgrounds) b.update();
   
   for (auto& p: patrollers ) p->update(ticks);
@@ -138,6 +146,7 @@ void Engine::update(Uint32 ticks) {
   player.update(ticks); 
   hud.update();
   
+ 
   viewport.update(); // always update viewport last
   
   // collisions

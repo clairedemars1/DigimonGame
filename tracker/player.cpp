@@ -17,7 +17,9 @@ Player::Player(): TwoWayExplodingMultiSprite("player"),
 	bulletName( Gamedata::getInstance().getXmlStr("player/bullet") ),
 	bullets( bulletName ),
 	minSpeed( Gamedata::getInstance().getXmlInt(bulletName+"/speedX") ),
-	observers()
+	observers(),
+	xToWin( Gamedata::getInstance().getXmlInt("world/width") - getFrameWidth() - 40 ),
+	hasWon(false)
 	{}
 
 Player::~Player(){
@@ -145,6 +147,10 @@ void Player::update_helper_non_explosion(Uint32 ticks){
 }
 void Player::update_helper_always(){
 	notifyObservers();
+	//~ std::cout << getX() << " "<< xToWin <<std::endl;
+	if (getX() > xToWin ){
+		hasWon = true;
+	}
 }
 
 void Player::do_after_explosion(){
@@ -177,4 +183,5 @@ void Player::reset(){
 	setPosition(Vector2f(Gamedata::getInstance().getXmlInt(getName()+"/startLoc/x"), 
 					Gamedata::getInstance().getXmlInt(getName()+"/startLoc/y"))
 					);
+	hasWon = false;
 }

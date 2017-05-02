@@ -55,6 +55,7 @@ void Hud::draw() const {
 			iomod.writeText(line, rect.x + margin, y + margin);
 			y += text_height + spacer;
 		}
+		//~ std::cout << "rect x" << rect.x << " " << rect.y << std::endl;
 		iomod.reSetFontSize();
 	
 	}

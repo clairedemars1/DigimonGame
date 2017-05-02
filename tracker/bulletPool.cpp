@@ -79,6 +79,7 @@ void BulletPool::draw() const {
   //~ stream << "Bullet pool: " << freeList.size();
   //~ IOmod::getInstance().
     //~ writeText(stream.str(), 500, 60);
+
   
   for ( Bullet bullet : bulletList ) {
     bullet.draw();

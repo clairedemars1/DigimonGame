@@ -24,7 +24,7 @@ public:
 
 private:
   const RenderContext* rc;
-  const IOmod& io;
+  IOmod& io;
   Clock& clock;
   SDLSound sound;
 
@@ -40,10 +40,8 @@ private:
   Hud hud;
   CollisionStrategy* strategy_p; // pointer so can change stategies
 
-
   bool makeVideo;
   FrameGenerator frameGenerator;
-
 
   void draw() const;
   void update(Uint32 ticks);

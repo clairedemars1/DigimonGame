@@ -23,6 +23,7 @@ public:
 	int getBulletCount() const { return bullets.bulletCount(); }
 	int getBulletFreeCount() const { return bullets.freeCount(); }
 	void reset();
+	bool getHasWon() {return hasWon; }
 	
 	//disallow some
 	Player(const Player& rhs)=delete;
@@ -42,6 +43,8 @@ private:
 	BulletPool bullets;
 	int minSpeed;
 	std::list<Patroller*> observers;
+	int xToWin;
+	bool hasWon;
 
 	void notifyObservers();
 	

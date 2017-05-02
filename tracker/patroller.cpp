@@ -38,10 +38,13 @@ void Patroller::do_after_explosion(){
 
 void Patroller::goLeft()  { // todo: why this check?
   if (getX() > 0) setVelocityX( -abs(getVelocityX()) ); 
+  std::cout << "go left" << std::endl;
 }
-void Patroller::goRight() { setVelocityX( fabs(getVelocityX()) ); }
-void Patroller::goUp()    { setVelocityY( -fabs(getVelocityY()) ); 
-	 }
+void Patroller::goRight() { 
+	setVelocityX( fabs(getVelocityX()) ); 
+	std::cout << "go right" << std::endl;
+}
+void Patroller::goUp()    { setVelocityY( -fabs(getVelocityY()) ); }
 void Patroller::goDown()  { setVelocityY( fabs(getVelocityY()) ); }
 	
 void Patroller::update_helper_non_explosion(Uint32 ticks){
@@ -54,7 +57,7 @@ void Patroller::update_helper_non_explosion(Uint32 ticks){
 	float distanceToEnemy = ::distance( x, y, player_x, player_y );
 
 	if ( currentMode == NORMAL ){ // move in patrol range
-		//~ std::cout << "normal mode" << std::endl;
+		std::cout << "normal mode" << std::endl;
 		
 		if(distanceToEnemy < sightDistance){	currentMode = CHASE;  }
 			
@@ -69,7 +72,7 @@ void Patroller::update_helper_non_explosion(Uint32 ticks){
 			setVelocityX( -fabs( getVelocityX() ) );
 		}  
 	} else if (currentMode == CHASE){ // chase player
-		//~ std::cout << "chase mode" << std::endl;
+		std::cout << "chase mode" << std::endl;
 		
 		if (not playerIsJumping){ //if jumping , still chase mode but physically stop
 			if(distanceToEnemy > sightDistance  ||  playerIsExploding ){ 
@@ -86,19 +89,29 @@ void Patroller::update_helper_non_explosion(Uint32 ticks){
 			}
 		}
 	} else if (currentMode == GO_HOME ){
+		std::cout << "go home " << std::endl;
 		int home_x = origPos[0] + getFrameWidth()/2;
 		int home_y = origPos[1] + getFrameHeight()/2;
+		float dist_to_home =  distance(x, y, home_x, home_y);
 		
-		if ( distance(x, y, home_x, home_y) < 50 ) { 
+		//~ std::cout << x << " " << y << " " << home_x << " " << home_y << std::endl;
+				
+		if ( dist_to_home < 50 ) { 
 			currentMode = NORMAL; 
-		} else {
+			// todo reset vel (and pos?)
+		} else { // keep moving
+			if ( dist_to_home  < 100 ) { 
+				// slow down so not miss it
+				std::cout << "slowing down" << std::endl;
+				setVelocity( Vector2f(20, 20) );
+			} 
 			if (not playerIsJumping){
 			  //~ bool close_in_x = false;
 			  //~ bool close_in_y = false;
-			  if ( x < home_x  ) goRight();
-			  if ( x > home_x  ) goLeft();
-			  if ( y < home_y  ) goDown();
-			  if ( y > home_y  ) goUp();
+			  if ( x < home_x + 40 ) goRight();
+			  if ( x > home_x  - 40 ) goLeft();
+			  if ( y < home_y  + 40) goDown();
+			  if ( y > home_y  - 40) goUp();
 			  
 			  Vector2f incr = getVelocity() * static_cast<float>(ticks) * 0.001;
 			  setPosition(getPosition() + incr);

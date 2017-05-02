@@ -94,9 +94,10 @@ void Patroller::update_helper_non_explosion(Uint32 ticks){
 		int home_y = origPos[1] + getFrameHeight()/2;
 		float dist_to_home =  distance(x, y, home_x, home_y);
 		
-		//~ std::cout << x << " " << y << " " << home_x << " " << home_y << std::endl;
+		std::cout << home_x - x << " " << home_y - y <<  std::endl;
+		std::cout << dist_to_home << std::endl;
 				
-		if ( dist_to_home < 50 ) { 
+		if ( dist_to_home < 70 ) { 
 			currentMode = NORMAL; 
 			// todo reset vel (and pos?)
 		} else { // keep moving

@@ -77,7 +77,8 @@ void Player::update_helper_non_explosion(Uint32 ticks){
 		if (not isJumping) {
 			yBeforeJump = getY();
 			jKeyDown = false;
-			isJumping = true; std::cout << "setting isJumping" <<std::endl;
+			isJumping = true; 
+			//~ std::cout << "setting isJumping" <<std::endl;
 			
 			setVelocityX(Gamedata::getInstance().getXmlInt("player/jumpSpeedX"));
 			setVelocityY(maxJumpVelY);

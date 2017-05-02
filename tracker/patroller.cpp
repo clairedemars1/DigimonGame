@@ -85,6 +85,25 @@ void Patroller::update_helper_non_explosion(Uint32 ticks){
 
 			}
 		}
+	} else if (currentMode == GO_HOME ){
+		int home_x = origPos[0] + getFrameWidth()/2;
+		int home_y = origPos[1] + getFrameHeight()/2;
+		
+		if ( distance(x, y, home_x, home_y) < 50 ) { 
+			currentMode = NORMAL; 
+		} else {
+			if (not playerIsJumping){
+			  //~ bool close_in_x = false;
+			  //~ bool close_in_y = false;
+			  if ( x < home_x  ) goRight();
+			  if ( x > home_x  ) goLeft();
+			  if ( y < home_y  ) goDown();
+			  if ( y > home_y  ) goUp();
+			  
+			  Vector2f incr = getVelocity() * static_cast<float>(ticks) * 0.001;
+			  setPosition(getPosition() + incr);
+			}
+		}
 	}
 }
 
@@ -109,10 +128,11 @@ void Patroller::setYRand(){
 
 void Patroller::stopChase(){
 	// reset velocities  & position
-	setPosition(origPos);
-	setVelocity( Vector2f(Gamedata::getInstance().getXmlInt(getName()+"/speedX"), 
-		Gamedata::getInstance().getXmlInt(getName()+"/speedY")) );
+	//~ setPosition(origPos);
+	//~ setVelocity( Vector2f(Gamedata::getInstance().getXmlInt(getName()+"/speedX"), 
+		//~ Gamedata::getInstance().getXmlInt(getName()+"/speedY")) );
 	
-	currentMode = NORMAL;
+	//~ currentMode = NORMAL;
+	currentMode = GO_HOME;
 }
 

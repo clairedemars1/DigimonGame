@@ -23,7 +23,7 @@ public:
 	}
 
 private:
-	enum MODE {NORMAL, CHASE};
+	enum MODE {NORMAL, CHASE, GO_HOME};
 	Vector2f origPos;
 	int leftEndPoint;
 	int patrolRange;
@@ -34,6 +34,7 @@ private:
 	bool playerIsExploding;
 	bool playerIsJumping;
 	static float sightDistance; // so all patrollers share the same distance
+	static float closeEnough; // the range that's ok to be in for 
 	
 	void setXRandWithinRange(); // semi-randomly, really
 	void setYRand(); // semi-randomly, really

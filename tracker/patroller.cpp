@@ -71,7 +71,7 @@ void Patroller::update_helper_non_explosion(Uint32 ticks){
 	} else if (currentMode == CHASE){ // chase player
 		//~ std::cout << "chase mode" << std::endl;
 		
-		if (not playerIsJumping){ //if jumping , still chase mode but stopped
+		if (not playerIsJumping){ //if jumping , still chase mode but physically stop
 			if(distanceToEnemy > sightDistance  ||  playerIsExploding ){ 
 				stopChase(); 
 			} else {

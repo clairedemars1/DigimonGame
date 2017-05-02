@@ -5,7 +5,7 @@
 #include "hud.h"
 #include "gamedata.h"
 
-Hud::Hud( SDL_Renderer* r):
+Hud::Hud( SDL_Renderer* r, const Player* player, const bool* _isGodP):
 	rend(r), 
 	rect{
 		Gamedata::getInstance().getXmlInt("hud/x"), 
@@ -14,7 +14,9 @@ Hud::Hud( SDL_Renderer* r):
 		Gamedata::getInstance().getXmlInt("hud/height"),
 		}, 
 	lines(),
-	doDraw(450)
+	doDraw(450),
+	playerP(player),
+	isGodP(_isGodP)
 	{}
 
 // shows the hud for the next 350 ticks
@@ -61,9 +63,7 @@ void Hud::draw() const {
 
 
 void Hud::update() {
-	
-	
-	
+
 	if (doDraw > 0) doDraw--;
 	
 	// reset everything, since some stuff (the fps, elapsed time) changes
@@ -71,11 +71,24 @@ void Hud::update() {
 	
 	// new stuff
 	Clock& clock = Clock::getInstance();
+	std::string bulletCount = std::to_string(playerP->getBulletCount());
+	std::string freeCount = std::to_string(playerP->getBulletFreeCount());
+	std::string is_in_god_mode;
+	if (*isGodP){
+		is_in_god_mode = "ON";
+	} else {
+		is_in_god_mode = "OFF";
+	}
+	addLine("asdw - move"); 
+	addLine("j - jump");
+	addLine("r - reset");
+	addLine("g - god mode  ("+is_in_god_mode+" now)");
+	addLine("q - quit");
+	addLine("m - music");
+	addLine("_________________");
+	addLine("Bullets: "+bulletCount+" active "+freeCount+" free");
 	addLine("Avg fps: " + std::to_string( clock.getAvgFps() ) );
 	addLine("Elapsed Secs: " + std::to_string( (int) clock.getSecondsSinceStart() ) );
-	addLine("ASDW Movement"); 
-	addLine("(Note: he cannot move ");
-	addLine("above the water line)"); 
 	
 	
 

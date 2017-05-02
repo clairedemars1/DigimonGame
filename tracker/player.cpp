@@ -32,8 +32,8 @@ void Player::draw() const {
 
 void Player::receive_command(std::string event){
 	// event options: jKeyDown, jKeyUp
-	if (event == "jKeyDown") jKeyDown = true;
-	if (event == "jKeyUp") jKeyUp = true;
+	if (event == "jKeyDown") jKeyDown = true; 
+	if (event == "jKeyUp") jKeyUp = true; //todo unset jKeyDown?
 }
 
 
@@ -77,7 +77,7 @@ void Player::update_helper_non_explosion(Uint32 ticks){
 		if (not isJumping) {
 			yBeforeJump = getY();
 			jKeyDown = false;
-			isJumping = true;
+			isJumping = true; std::cout << "setting isJumping" <<std::endl;
 			
 			setVelocityX(Gamedata::getInstance().getXmlInt("player/jumpSpeedX"));
 			setVelocityY(maxJumpVelY);
@@ -141,7 +141,6 @@ void Player::update_helper_non_explosion(Uint32 ticks){
 	bullets.update(ticks);
 }
 void Player::update_helper_always(){
-	//~ if (isJumping) {std::cout << "player is" << std::endl; }
 	notifyObservers();
 }
 

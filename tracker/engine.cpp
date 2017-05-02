@@ -35,11 +35,11 @@ Engine::Engine() :
   fallers(),
   patrollers(),
   player(),
-  hud(renderer),
+  isInGodMode(false),
+  hud(renderer, &player, &isInGodMode),
   strategy_p(new RectangularCollisionStrategy),
   makeVideo( false ),
-  frameGenerator(),
-  isInGodMode( false)
+  frameGenerator()
 {	
   // init
 	  // seed rand		
@@ -179,6 +179,7 @@ void Engine::play() {
 			// godmode
 			if (keystate[SDL_SCANCODE_G] ){
 				isInGodMode = not isInGodMode;
+				hud.show();
 			}
 			// capture frames
 			if (keystate[SDL_SCANCODE_F4] && !makeVideo) {
@@ -190,13 +191,12 @@ void Engine::play() {
 			  makeVideo = false;
 			}
 			
-			//receive_command player: jump
+			// player jump
 			if ( keystate[SDL_SCANCODE_J] ){
                 player.receive_command("jKeyDown");
 			}
       } 
-      if (event.type == SDL_KEYUP) {
-		  //receive_command player: jump
+      if (event.type == SDL_KEYUP) { 	// player jump
 			if ( keystate[SDL_SCANCODE_J] ){
                 player.receive_command("jKeyUp");
 			}

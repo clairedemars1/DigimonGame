@@ -37,7 +37,7 @@
 
 <hud>
 	<width>200</width>
-	<height>130</height>
+	<height>220</height>
 	<x>30</x>
 	<y>30</y>
 </hud>
@@ -113,7 +113,7 @@
   <transparency>true</transparency>
   <!-- jumping info-->
   <gravity>1000</gravity>
-  <jumpSpeedX>100</jumpSpeedX>
+  <jumpSpeedX>200</jumpSpeedX>
   <minJumpSpeedY>-500</minJumpSpeedY>
   <maxJumpSpeedY>-700</maxJumpSpeedY>
 </player>

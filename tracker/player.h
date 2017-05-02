@@ -20,6 +20,8 @@ public:
 	bool isBulletHitting(const Drawable* obj) const;
 	void attach(Patroller* p){ observers.push_back(p); }
 	void detach(const Patroller* find_me);
+	int getBulletCount() const { return bullets.bulletCount(); }
+	int getBulletFreeCount() const { return bullets.freeCount(); }
 	
 	//disallow some
 	Player(const Player& rhs)=delete;

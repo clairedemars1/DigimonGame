@@ -43,7 +43,7 @@ Engine::Engine() :
 {	
   // init
 	  // seed rand		
-	  //~ srand(time(0));
+	  srand(time(0));
 	  
 	  //backgrounds
 	  const std::string arr[4] = {"4", "3", "2", "1"};

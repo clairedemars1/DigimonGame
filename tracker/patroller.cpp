@@ -38,14 +38,22 @@ void Patroller::do_after_explosion(){
 
 void Patroller::goLeft()  { // todo: why this check?
   if (getX() > 0) setVelocityX( -abs(getVelocityX()) ); 
-  std::cout << "go left" << std::endl;
+  //~ std::cout << "go left" << std::endl;
 }
 void Patroller::goRight() { 
 	setVelocityX( fabs(getVelocityX()) ); 
-	std::cout << "go right" << std::endl;
+	//~ std::cout << "go right" << std::endl;
 }
-void Patroller::goUp()    { setVelocityY( -fabs(getVelocityY()) ); }
-void Patroller::goDown()  { setVelocityY( fabs(getVelocityY()) ); }
+void Patroller::goUp()    {
+	 setVelocityY( -fabs(getVelocityY()) );
+	 	//~ std::cout << "go up" << std::endl;
+
+	  }
+void Patroller::goDown()  {
+	 setVelocityY( fabs(getVelocityY()) ); 
+	 	//~ std::cout << "go down" << std::endl;
+
+	 }
 	
 void Patroller::update_helper_non_explosion(Uint32 ticks){
 	advanceFrame(ticks);
@@ -57,7 +65,7 @@ void Patroller::update_helper_non_explosion(Uint32 ticks){
 	float distanceToEnemy = ::distance( x, y, player_x, player_y );
 
 	if ( currentMode == NORMAL ){ // move in patrol range
-		std::cout << "normal mode" << std::endl;
+		//~ std::cout << "normal mode" << std::endl;
 		
 		if(distanceToEnemy < sightDistance){	currentMode = CHASE;  }
 			
@@ -72,7 +80,7 @@ void Patroller::update_helper_non_explosion(Uint32 ticks){
 			setVelocityX( -fabs( getVelocityX() ) );
 		}  
 	} else if (currentMode == CHASE){ // chase player
-		std::cout << "chase mode" << std::endl;
+		//~ std::cout << "chase mode" << std::endl;
 		
 		if (not playerIsJumping){ //if jumping , still chase mode but physically stop
 			if(distanceToEnemy > sightDistance  ||  playerIsExploding ){ 
@@ -89,35 +97,41 @@ void Patroller::update_helper_non_explosion(Uint32 ticks){
 			}
 		}
 	} else if (currentMode == GO_HOME ){
-		std::cout << "go home " << std::endl;
-		int home_x = origPos[0] + getFrameWidth()/2;
-		int home_y = origPos[1] + getFrameHeight()/2;
-		float dist_to_home =  distance(x, y, home_x, home_y);
-		
-		std::cout << home_x - x << " " << home_y - y <<  std::endl;
-		std::cout << dist_to_home << std::endl;
-				
-		if ( dist_to_home < 70 ) { 
-			currentMode = NORMAL; 
-			// todo reset vel (and pos?)
-		} else { // keep moving
-			if ( dist_to_home  < 100 ) { 
-				// slow down so not miss it
-				std::cout << "slowing down" << std::endl;
-				setVelocity( Vector2f(20, 20) );
-			} 
-			if (not playerIsJumping){
-			  //~ bool close_in_x = false;
-			  //~ bool close_in_y = false;
-			  if ( x < home_x + 40 ) goRight();
-			  if ( x > home_x  - 40 ) goLeft();
-			  if ( y < home_y  + 40) goDown();
-			  if ( y > home_y  - 40) goUp();
-			  
-			  Vector2f incr = getVelocity() * static_cast<float>(ticks) * 0.001;
-			  setPosition(getPosition() + incr);
+		//~ std::cout << "go home " << std::endl;
+
+		// stand still if player is jumping
+		// if get within range of home, stop
+		// if not in range of home in x or y, move in right dir
+		if (not playerIsJumping){
+			int home_x = origPos[0];
+			int home_y = origPos[1];
+			x = getX();
+			y = getY();
+			bool too_left, too_right, too_up, too_down = false;
+			int range = 5; // I thought this would control the jitter, but it didn't
+			if ( x < home_x -  range ){  too_left = true; goRight(); }
+			if ( x > home_x  + range ){  too_right = true; goLeft(); }
+			if ( y < home_y  - range ){  too_up = true; goDown();}
+			if ( y > home_y  + range ){  too_down = true; goUp(); }
+			
+			if (too_left or too_right ){
+				 float incr = getVelocityX() * static_cast<float>(ticks) * 0.001;
+				  setX(getX() + incr);
 			}
-		}
+			if ( too_up or too_down ){ 
+				float incr = getVelocityY() * static_cast<float>(ticks) * 0.001;
+				//~ std::cout << getY() << " increment by " << incr <<std::endl;
+				setY(getY() + incr);
+			} 
+			if (not too_left and not too_right and not too_up and not too_down ){
+				currentMode = NORMAL;
+				setVelocity(Vector2f(Gamedata::getInstance().getXmlInt(getName()+"/speedX"), 
+					Gamedata::getInstance().getXmlInt(getName()+"/speedY")) );
+					
+				if (getX() < leftEndPoint ){ setX(leftEndPoint);} // so math works out
+				origPos = getPosition();							// same
+			}
+		} 
 	}
 }
 

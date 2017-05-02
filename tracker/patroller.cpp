@@ -46,8 +46,6 @@ void Patroller::goDown()  { setVelocityY( fabs(getVelocityY()) ); }
 	
 void Patroller::update_helper_non_explosion(Uint32 ticks){
 	advanceFrame(ticks);
-	std::cout << "cur mode" << currentMode << std::endl;
-	std::cout << "jump" << playerIsJumping << std::endl;
 	
 	float x= getX()+getFrameWidth()/2;
 	float y= getY()+getFrameHeight()/2;
@@ -56,12 +54,12 @@ void Patroller::update_helper_non_explosion(Uint32 ticks){
 	float distanceToEnemy = ::distance( x, y, player_x, player_y );
 
 	if ( currentMode == NORMAL ){ // move in patrol range
-		
+		//~ std::cout << "normal mode" << std::endl;
 		
 		if(distanceToEnemy < sightDistance){	currentMode = CHASE;  }
 			
 		// only move horiz
-		int incr = getVelocityX()  * static_cast<float>(ticks) * 0.001;
+		float incr = getVelocityX()  * static_cast<float>(ticks) * 0.001;
 		setX(getX() + incr);
 		
 		if ( getX() < leftEndPoint) {
@@ -71,21 +69,21 @@ void Patroller::update_helper_non_explosion(Uint32 ticks){
 			setVelocityX( -fabs( getVelocityX() ) );
 		}  
 	} else if (currentMode == CHASE){ // chase player
-		if(distanceToEnemy > sightDistance   ||    playerIsExploding ){ stopChase(); }
-		else {
-		  if ( not playerIsJumping){ // else patroller will kill
+		//~ std::cout << "chase mode" << std::endl;
+		
+		if (not playerIsJumping){ //if jumping , still chase mode but stopped
+			if(distanceToEnemy > sightDistance  ||  playerIsExploding ){ 
+				stopChase(); 
+			} else {
+				  if ( x < player_x ) goRight();
+				  if ( x > player_x ) goLeft();
+				  if ( y < player_y ) goDown();
+				  if ( y > player_y ) goUp();
+				  
+				  Vector2f incr = getVelocity() * static_cast<float>(ticks) * 0.001;
+				  setPosition(getPosition() + incr);	
 
-			  if ( x < player_x ) goRight();
-			  if ( x > player_x ) goLeft();
-			  if ( y < player_y ) goDown();
-			  if ( y > player_y ) goUp();
-			  
-			  Vector2f incr = getVelocity() * static_cast<float>(ticks) * 0.001;
-			  setPosition(getPosition() + incr);	
-		  }
-		  
-		  
-		  
+			}
 		}
 	}
 }

@@ -4,27 +4,23 @@ Clemson Email Address: cmdemar@clemson.edu
 
 Project no: 5
 
-Project due date: April 30, 2017
+Project due date: May 2, 2017
 
 Project description: Make it a full game
 
-The easiest part of this project: 
+The easiest part of this project: god mode
 
 Problems that I had in completing this project: 
-	
+Same problem as last project: the keyboard drivers on the lab computers don't respect the SDL key down event thing, so for a single press of the j key, you can get 2 SDL key-was-pressed-down events. Therefore I didn't get to test how the jump key will behave on computers that actually do what SDL says to do. I also had bugs with initilization of multiple things at once, and with thinking that things were inserted at the front of a list, when they're actually inserted at the back.
 
 Notes:
-
- - game plan: 
-	goal - the player's goal is get to the right-most end of the world without dying. There are obstacles, either digital monsters (patrolling back and forth like in donkey kong) or rocks/bushes. They can shoot the monsters into bits (explosions), and jump either kind of obstacles. They can also jump to catch something in the sky ( maybe digivices), which help them level up (digivolve) into a higher stage. 
-	Not sure what to do for AI yet. 
-	Sprite source - online with alterations (blurring, etc).
-	Music - digimon theme song and ca-ching noises for getting points.
 	
  - notes on design:
 	+ I moved key detection for movement (asdw) into player for better encapsulation
 
- - image sources and work I did altering them:
+ - sources and work I did altering them:
+ 
+	hey digimon song - https://www.youtube.com/watch?v=DYrlSjQyrzY
  
      backgrounds - http://dr-roflcopter.deviantart.com/art/Digimon-Adventure-Tri-Train-Wallpaper-523992542
      removed 5 sets of leaves, bus, bushes, and electrical towers. For edges matching, could not just flip - b/c of direction clouds were blowing - so duplicated 3 times and adjusted clouds on edges. Separated into 5 layers. Adjusted the layers' heights.
@@ -42,6 +38,9 @@ Notes:
      
      jumping algorithm - 
      https://gamedev.stackexchange.com/questions/29617/how-to-make-a-character-jump
-    
+     
+     gesomon -  gesomon - http://s874.photobucket.com/user/WtWSprites/media/Adult/156_Gesomon.png.html
+     removed background and rearranged sprites
+     enlarged then Guassian blurred edges to reduce pixelation    
      
    

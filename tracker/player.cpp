@@ -117,6 +117,8 @@ void Player::update_helper_non_explosion(Uint32 ticks){
 		
 		// if we get below y where started jump, then actually end jump
 		if (getY() > yBeforeJump){
+			setVelocity( Vector2f(Gamedata::getInstance().getXmlInt(getName()+"/speedX"), 
+					Gamedata::getInstance().getXmlInt(getName()+"/speedY")) );
 			isJumping = false;
 		}
 	} else { // allow adws keys

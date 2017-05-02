@@ -134,7 +134,7 @@
 
 <fireball>
   <file>images/fireball.xcf</file>
-  <interval>150</interval>
+  <interval>100</interval>
   <distance>320</distance>
   <startLoc x="0" y="0"/>
   <speedX>200</speedX>

@@ -60,8 +60,7 @@ Engine::Engine() :
 	  // patrollers
 	  int worldWidth = Gamedata::getInstance().getXmlInt("world/width");
 	  int spaceBetween = Gamedata::getInstance().getXmlInt("patroller/spaceBetween");
-	  //~ int numPatrollers =  worldWidth/spaceBetween; // todo put back
-	  int numPatrollers =  1;
+	  int numPatrollers =  worldWidth/spaceBetween; 
 	  int dont_hit_player = Gamedata::getInstance().getXmlInt("player/startLoc/x") + 100;
 	  int playerWidth = player.getFrameWidth();
 	  int playerHeight = player.getFrameHeight();

@@ -80,6 +80,14 @@ Engine::Engine() :
 	  std::cout << "Loading complete" << std::endl;
 }
 
+void Engine::reset(){
+	// player's position and patroller's positions
+	player.reset();
+	for (auto pat_p: patrollers){
+		pat_p -> reset();
+	}
+}
+
 void Engine::draw() const {
   //~ for (auto& b : backgrounds){
 	//~ b.draw();  
@@ -185,11 +193,15 @@ void Engine::play() {
 			  std::cout << "Initiating frame capture" << std::endl;
 			  makeVideo = true;
 			}
+			// capture frames
 			else if (keystate[SDL_SCANCODE_F4] && makeVideo) {
 			  std::cout << "Terminating frame capture" << std::endl;
 			  makeVideo = false;
 			}
-			
+			//reset
+			if (keystate[SDL_SCANCODE_R] ){
+				reset();
+			}
 			// player jump
 			if ( keystate[SDL_SCANCODE_J] ){
                 player.receive_command("jKeyDown");

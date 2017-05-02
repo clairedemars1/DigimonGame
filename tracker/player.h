@@ -22,6 +22,7 @@ public:
 	void detach(const Patroller* find_me);
 	int getBulletCount() const { return bullets.bulletCount(); }
 	int getBulletFreeCount() const { return bullets.freeCount(); }
+	void reset();
 	
 	//disallow some
 	Player(const Player& rhs)=delete;

@@ -164,3 +164,10 @@ void Patroller::stopChase(){
 	currentMode = GO_HOME;
 }
 
+void Patroller::reset(){
+	setVelocity(Vector2f(Gamedata::getInstance().getXmlInt(getName()+"/speedX"), 
+					Gamedata::getInstance().getXmlInt(getName()+"/speedY"))	
+					);
+	setPosition(origPos);
+}
+

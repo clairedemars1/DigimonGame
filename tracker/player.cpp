@@ -170,3 +170,11 @@ void Player::detach(const Patroller* find_me){
 	}
 }
 
+void Player::reset(){
+	setVelocity(Vector2f(Gamedata::getInstance().getXmlInt(getName()+"/speedX"), 
+					Gamedata::getInstance().getXmlInt(getName()+"/speedY"))	
+					);
+	setPosition(Vector2f(Gamedata::getInstance().getXmlInt(getName()+"/startLoc/x"), 
+					Gamedata::getInstance().getXmlInt(getName()+"/startLoc/y"))
+					);
+}

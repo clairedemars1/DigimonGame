@@ -81,6 +81,7 @@ void Hud::update() {
 	}
 	addLine("asdw - move"); 
 	addLine("j - jump");
+	addLine("space - shoot");
 	addLine("r - reset");
 	addLine("g - god mode  ("+is_in_god_mode+" now)");
 	addLine("q - quit");

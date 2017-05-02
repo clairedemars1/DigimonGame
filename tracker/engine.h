@@ -47,5 +47,6 @@ private:
 
   void draw() const;
   void update(Uint32 ticks);
+  void reset();
 
 };

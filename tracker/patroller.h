@@ -21,6 +21,7 @@ public:
 		playerIsExploding = player_is_exploding;
 		playerIsJumping = player_is_jumping;
 	}
+	void reset();
 
 private:
 	enum MODE {NORMAL, CHASE, GO_HOME};

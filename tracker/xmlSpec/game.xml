@@ -2,8 +2,13 @@
 <GameData>
 	
 <!--Misc-->
-<screenTitle> Claire DeMars: Digital Champions </screenTitle>
-<title> Claire DeMars: Digital Champions </title>
+<window>
+	<title>Claire DeMars</title>
+	<x>0</x>
+	<y>100</y>
+</window>
+
+
 <!--
 <maxStringSize>50</maxStringSize>
 -->
@@ -102,7 +107,7 @@
   <startLoc x="100" y="650"/>
   <frames>3</frames>
   <frameInterval>300</frameInterval>
-  <speedX>400</speedX>
+  <speedX>100</speedX>
   <speedY>-100</speedY>
   <yLimit>550</yLimit> 
   <transparency>true</transparency>
@@ -140,7 +145,7 @@
 <patroller>
 	<yLimit>601</yLimit>
 	<spaceBetween>700</spaceBetween>
-	<sightDistance>800</sightDistance>
+	<sightDistance>200</sightDistance>
 </patroller>
 
 <gesomon>
@@ -148,8 +153,8 @@
   <startLoc x="0" y="0"/>
   <frames>4</frames>
   <frameInterval>300</frameInterval>
-  <speedX>100</speedX>
-  <speedY>-100</speedY>
+  <speedX>50</speedX>
+  <speedY>-50</speedY>
   <transparency>true</transparency>
   <patrolRange>300</patrolRange>
 </gesomon>

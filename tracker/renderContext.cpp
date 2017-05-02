@@ -27,9 +27,13 @@ RenderContext* RenderContext::getInstance() {
 }
 
 SDL_Window* RenderContext::initWindow( ) {
-  std::string title = Gamedata::getInstance().getXmlStr("title");
-	window = SDL_CreateWindow( title.c_str(), SDL_WINDOWPOS_CENTERED, 
-             SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN );
+	std::string title = Gamedata::getInstance().getXmlStr("window/title");
+	int x = Gamedata::getInstance().getXmlInt("window/x");
+	int y = Gamedata::getInstance().getXmlInt("window/y");
+	window = SDL_CreateWindow( title.c_str(), 
+			 x, 
+			 y, 
+			 WIDTH, HEIGHT, SDL_WINDOW_SHOWN );
   if( window == NULL ) {
     throw (std::string("Couldn't make a window: ")+SDL_GetError());
   }

@@ -141,7 +141,7 @@ void Player::update_helper_non_explosion(Uint32 ticks){
 	bullets.update(ticks);
 }
 void Player::update_helper_always(){
-	
+	//~ if (isJumping) {std::cout << "player is" << std::endl; }
 	notifyObservers();
 }
 
@@ -153,7 +153,7 @@ void Player::do_after_explosion(){
 
 void Player::notifyObservers(){
 	for (auto o: observers){
-		o->notify(getPosition(), getIsExploding());
+		o->notify(getPosition(), getIsExploding(), isJumping);
 	}
 }
 

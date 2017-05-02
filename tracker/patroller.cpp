@@ -16,7 +16,8 @@ Patroller::Patroller(std::string xml_name, int x_pos, int player_width, int play
 	playerPos(),
 	playerWidth(player_width),
 	playerHeight(player_height),
-	playerIsExploding(false)
+	playerIsExploding(false),
+	playerIsJumping(false)
 	{
 		leftEndPoint = x_pos; // set leftmost point of range
 		// make out of sync
@@ -45,6 +46,8 @@ void Patroller::goDown()  { setVelocityY( fabs(getVelocityY()) ); }
 	
 void Patroller::update_helper_non_explosion(Uint32 ticks){
 	advanceFrame(ticks);
+	std::cout << "cur mode" << currentMode << std::endl;
+	std::cout << "jump" << playerIsJumping << std::endl;
 	
 	float x= getX()+getFrameWidth()/2;
 	float y= getY()+getFrameHeight()/2;
@@ -53,6 +56,7 @@ void Patroller::update_helper_non_explosion(Uint32 ticks){
 	float distanceToEnemy = ::distance( x, y, player_x, player_y );
 
 	if ( currentMode == NORMAL ){ // move in patrol range
+		
 		
 		if(distanceToEnemy < sightDistance){	currentMode = CHASE;  }
 			
@@ -69,14 +73,18 @@ void Patroller::update_helper_non_explosion(Uint32 ticks){
 	} else if (currentMode == CHASE){ // chase player
 		if(distanceToEnemy > sightDistance   ||    playerIsExploding ){ stopChase(); }
 		else {
-		  if ( x < player_x ) goRight();
-		  if ( x > player_x ) goLeft();
-		  if ( y < player_y ) goDown();
-		  if ( y > player_y ) {goUp(); 
-			   }
+		  if ( not playerIsJumping){ // else patroller will kill
+
+			  if ( x < player_x ) goRight();
+			  if ( x > player_x ) goLeft();
+			  if ( y < player_y ) goDown();
+			  if ( y > player_y ) goUp();
+			  
+			  Vector2f incr = getVelocity() * static_cast<float>(ticks) * 0.001;
+			  setPosition(getPosition() + incr);	
+		  }
 		  
-		  Vector2f incr = getVelocity() * static_cast<float>(ticks) * 0.001;
-		  setPosition(getPosition() + incr);	
+		  
 		  
 		}
 	}

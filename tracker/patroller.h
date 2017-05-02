@@ -16,9 +16,10 @@ public:
 	Patroller(std::string xml_name, int x_pos, int player_width, int player_height);
 	virtual void update_helper_non_explosion(Uint32 ticks);
 	virtual void do_after_explosion();
-	void notify(const Vector2f& p, bool player_is_exploding){ 
+	void notify(const Vector2f& p, bool player_is_exploding, bool player_is_jumping){ 
 		playerPos = p;
 		playerIsExploding = player_is_exploding;
+		playerIsJumping = player_is_jumping;
 	}
 
 private:
@@ -31,6 +32,7 @@ private:
 	int playerWidth;
 	int playerHeight;
 	bool playerIsExploding;
+	bool playerIsJumping;
 	static float sightDistance; // so all patrollers share the same distance
 	
 	void setXRandWithinRange(); // semi-randomly, really

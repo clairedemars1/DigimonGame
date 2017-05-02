@@ -111,7 +111,7 @@ void Engine::draw() const {
   
   // hud and info
   std::stringstream strm;
-  strm << Gamedata::getInstance().getXmlStr("screenTitle");
+  strm << Gamedata::getInstance().getXmlStr("window/title");
   io.writeText(strm.str(), 30, 440);
   hud.draw(); 
 

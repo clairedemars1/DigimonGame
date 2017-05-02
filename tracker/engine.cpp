@@ -154,11 +154,13 @@ void Engine::update(Uint32 ticks) {
   for (auto it=patrollers.begin(); it < patrollers.end(); it++) {
 		if ( not isInGodMode ){
 			if (strategy_p->execute(**it, player) ){ // did they kill player?
-			  player.explode();		  
+			  player.explode();	
+			  sound[0];	  
 			}
 		}
 		if (player.isBulletHitting(static_cast<Drawable*>( &(**it) )) ){ // did player shoot them
 		  (**it).explode();
+		  sound[0];
 		}
   }
 }

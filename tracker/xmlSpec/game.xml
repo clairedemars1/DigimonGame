@@ -144,7 +144,7 @@
 
 <patroller>
 	<yLimit>601</yLimit>
-	<spaceBetween>700</spaceBetween>
+	<spaceBetween>550</spaceBetween>
 	<sightDistance>200</sightDistance>
 </patroller>
 

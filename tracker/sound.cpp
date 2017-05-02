@@ -45,7 +45,7 @@ SDLSound::SDLSound() :
   //~ sounds.push_back( Mix_LoadWAV("sound/Thump.wav") );
   //~ sounds.push_back( Mix_LoadWAV("sound/phaser.wav") );
   //~ sounds.push_back( Mix_LoadWAV("sound/Putt1.wav") );
-  //~ sounds.push_back( Mix_LoadWAV("sound/explosion.wav") );
+  sounds.push_back( Mix_LoadWAV("sound/explosion.wav") );
   //~ sounds.push_back( Mix_LoadWAV("sound/cannon.wav") );
   //~ sounds.push_back( Mix_LoadWAV("sound/Larc.wav") );
   for (unsigned int i = 0; i < sounds.size(); ++i) channels.push_back(i);

@@ -36,8 +36,8 @@
 </font>
 
 <hud>
-	<width>200</width>
-	<height>240</height>
+	<width>100</width>
+	<height>100</height>
 	<x>30</x>
 	<y>30</y>
 </hud>

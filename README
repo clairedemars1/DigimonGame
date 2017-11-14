@@ -25,7 +25,7 @@
  - OO patterns used:
 	+ factory flyweight: frameFactory.cpp textureWrapper.cpp
 	+ strategy: collisionStrategy.cpp
-	+ template method: 
+	+ template method: twoWayExplodingMultiSprite.cpp
 	+ object pool: bulletPool.cpp
 	+ singleton: ioMod.cpp gamedata.cpp frameFactory.cpp
 	+ composite reuse principle: twoWayExplodingMultiSprite.cpp explodingSprite.cpp

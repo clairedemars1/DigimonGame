@@ -1,46 +1,44 @@
-Name: Claire DeMars
 
-Clemson Email Address: cmdemar@clemson.edu
+ - game play: You are Agumon (orange digimon). The goal is get to the right-most end of the world without dying. There are patrolling digimon who chase you if you get too close. You can shoot them with fireballs or jump over them. You can reset at any time, or play in invincible god mode (see heads up display for key commands)
+ 
+ - compilation:
+   command: make
+   dependencies: SDL 2.0, c++11
+ 
+ - features:
+	+ simple pursuit AI
+	+ collision detection for fireballs, player, enemies
+	+ chunking and frame-based explosions
+	+ projectiles (fireballs)
+	+ jumping
+	+ data driven design (drawing from data file without need to recompile)
+	+ Painter's algorithm and parallax scrolling for illusion of depth
+	+ object pooling (fireballs)
+	+ encapsulation of command key detection within Player class
+	+ image editing: Guassian blur, layer separation, drawing
+	+ no user-code memory leaks
+	+ sound effects and music
+	+ god mode and reset option
+	+ HUD (heads up display) with timeout and redisplay options
 
-Project no: 5
 
-Project due date: May 2, 2017
-
-Project description: Make it a full game
-
-The easiest part of this project: god mode
-
-Problems that I had in completing this project: 
-Same problem as last project: the keyboard drivers on the lab computers don't respect the SDL key down event thing, so for a single press of the j key, you can get 2 SDL key-was-pressed-down events. Therefore I didn't get to test how the jump key will behave on computers that actually do what SDL says to do. I also had bugs with initilization of multiple things at once, and with thinking that things were inserted at the front of a list, when they're actually inserted at the back.
-
-Notes:
+ - OO patterns used:
+	+ factory flyweight: frameFactory.cpp textureWrapper.cpp
+	+ strategy: collisionStrategy.cpp
+	+ template method: 
+	+ object pool: bulletPool.cpp
+	+ singleton: ioMod.cpp gamedata.cpp frameFactory.cpp
+	+ composite reuse principle: twoWayExplodingMultiSprite.cpp explodingSprite.cpp
 	
- - notes on design:
-	+ I moved key detection for movement (asdw) into player for better encapsulation
-
- - sources and work I did altering them:
+ - sources:
+	The game was developed by Claire DeMars, building on a code base written by Brian and Chris Malloy for the course CPSC 6160 - "2D Game Design" at Clemson University, Spring 2017.	
  
-	hey digimon song - https://www.youtube.com/watch?v=DYrlSjQyrzY
- 
-     backgrounds - http://dr-roflcopter.deviantart.com/art/Digimon-Adventure-Tri-Train-Wallpaper-523992542
-     removed 5 sets of leaves, bus, bushes, and electrical towers. For edges matching, could not just flip - b/c of direction clouds were blowing - so duplicated 3 times and adjusted clouds on edges. Separated into 5 layers. Adjusted the layers' heights.
-    
-     agumon - http://wikimon.net/Wikimon:Community_Portal_Archive/1
-     Guassian blurred edges to match Gesomon
-     
-     patamon - http://withthewill.net/threads/10654-The-New-Digimon-Background-Dawn-Dusk-Lost-Evo-SXW-Sprite-Topic!-*NO-SPRITE-REQUESTS!*
-     
-     small_greymon - 
-     repositioned images to make the division between frames works
-     resized image
-     made the mouth open: cut and rotated the head and jaw separatly, drew in missing parts
-     http://eston12.deviantart.com/art/Greymon-Sprite-SHeet-305360485
-     
-     jumping algorithm - 
-     https://gamedev.stackexchange.com/questions/29617/how-to-make-a-character-jump
-     
-     gesomon -  gesomon - http://s874.photobucket.com/user/WtWSprites/media/Adult/156_Gesomon.png.html
-     removed background and rearranged sprites
-     enlarged then Guassian blurred edges to reduce pixelation    
+	"hey digimon" song - https://www.youtube.com/watch?v=DYrlSjQyrzY
+    backgrounds - http://dr-roflcopter.deviantart.com/art/Digimon-Adventure-Tri-Train-Wallpaper-523992542
+    agumon - http://wikimon.net/Wikimon:Community_Portal_Archive/1
+    patamon - http://withthewill.net/threads/10654-The-New-Digimon-Background-Dawn-Dusk-Lost-Evo-SXW-Sprite-Topic!-*NO-SPRITE-REQUESTS!*
+    small_greymon - http://eston12.deviantart.com/art/Greymon-Sprite-SHeet-305360485
+    jumping algorithm - https://gamedev.stackexchange.com/questions/29617/how-to-make-a-character-jump
+    gesomon - http://s874.photobucket.com/user/WtWSprites/media/Adult/156_Gesomon.png.html 
      
    

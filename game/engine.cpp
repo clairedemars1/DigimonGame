@@ -90,11 +90,8 @@ void Engine::reset(){
 }
 
 void Engine::draw() const {
-  //~ for (auto& b : backgrounds){
-	//~ b.draw();  
-  //~ }
-  //~ for(auto s : fallers) s->draw();
 
+  // Painter's algorithm
   backgrounds[0].draw();
   for (auto faller: fallers){
 	  if (faller->getScaleFactor() < 1.0 ) faller->draw();
@@ -138,16 +135,11 @@ void Engine::draw() const {
 void Engine::update(Uint32 ticks) {
 	
   if ( makeVideo ) frameGenerator.makeFrame();
- 
   for (auto& b: backgrounds) b.update();
-  
   for (auto& p: patrollers ) p->update(ticks);
-
   for(auto* s : fallers) s->update(ticks);
   player.update(ticks); 
   hud.update();
-  
- 
   viewport.update(); // always update viewport last
   
   // collisions
@@ -173,7 +165,6 @@ void Engine::play() {
 
   /// event loop
   while ( !done ) {
-	
 
 	/// while a key has been released or pressed, and we haven't attended to it yet
     while ( SDL_PollEvent(&event) ) {
@@ -205,7 +196,6 @@ void Engine::play() {
 			  std::cout << "Initiating frame capture" << std::endl;
 			  makeVideo = true;
 			}
-			// capture frames
 			else if (keystate[SDL_SCANCODE_F4] && makeVideo) {
 			  std::cout << "Terminating frame capture" << std::endl;
 			  makeVideo = false;

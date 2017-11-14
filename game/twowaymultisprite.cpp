@@ -6,8 +6,6 @@ TwoWayMultiSprite::TwoWayMultiSprite(const TwoWayMultiSprite& rhs): MultiSprite(
 
 void TwoWayMultiSprite::update(Uint32 ticks) {
 	MultiSprite::update(ticks);
-	
-
 	setIsFacingRight();
 }
 

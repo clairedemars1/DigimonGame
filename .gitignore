@@ -1,6 +1,8 @@
+game/frames/*
 
-tracker/frames/*
 
-tracker/run
+game/run
 
-tracker/*.o
+
+game/*.o
+

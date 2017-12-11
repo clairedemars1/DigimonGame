@@ -20,8 +20,8 @@ Features:
 	+ Painter's algorithm and parallax scrolling for illusion of depth
 	+ object pooling (fireballs)
 	+ encapsulation of command key detection within Player class
-	+ image editing: Guassian blur, layer separation, drawing
-	+ no user-code memory leaks (SDL has some)
+	+ images customized from online sprites/backgrounds using Guassian blur, layer separation, redrawing
+	+ no user-code memory leaks (SDL has its own)
 	+ sound effects and music
 	+ god mode and reset option
 	+ HUD (heads up display) with timeout and redisplay options
@@ -39,9 +39,9 @@ Sources
 	by instructors Brian and Chris Malloy for the course 
 	CPSC 6160 - "2D Game Design" at Clemson University, Spring 2017	
 	
-	Images, songs etc.
+	Image/Song Sources etc.
 	"hey digimon" song - https://www.youtube.com/watch?v=DYrlSjQyrzY
-    backgrounds - http://dr-roflcopter.deviantart.com/art/Digimon-Adventure-Tri-Train-Wallpaper-523992542
+	backgrounds - http://dr-roflcopter.deviantart.com/art/Digimon-Adventure-Tri-Train-Wallpaper-523992542
     agumon - http://wikimon.net/Wikimon:Community_Portal_Archive/1
     patamon - http://withthewill.net/threads/10654-The-New-Digimon-Background-Dawn-Dusk-Lost-Evo-SXW-Sprite-Topic!-*NO-SPRITE-REQUESTS!*
     small_greymon - http://eston12.deviantart.com/art/Greymon-Sprite-SHeet-305360485

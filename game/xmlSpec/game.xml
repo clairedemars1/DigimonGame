@@ -36,8 +36,8 @@
 </font>
 
 <hud>
-	<width>100</width>
-	<height>100</height>
+	<width>200</width>
+	<height>280</height>
 	<x>30</x>
 	<y>30</y>
 </hud>
@@ -89,25 +89,13 @@
 <!-- sprites -->
 <numOfFallingThings>300</numOfFallingThings>
 
-
-<!--
-<agumon>
-  <file>images/agumon.png</file>
-  <startLoc x="600" y="350"/>
-  <frames>2</frames>
-  <frameInterval>300</frameInterval>
-  <speedX>300</speedX>
-  <speedY>300</speedY>
-  <transparency>true</transparency>
-</agumon>
--->
 <player>
   <file>images/small_greymon.png</file>
   <bullet>fireball</bullet>
   <startLoc x="100" y="650"/>
   <frames>3</frames>
   <frameInterval>300</frameInterval>
-  <speedX>150</speedX>
+  <speedX>180</speedX>
   <speedY>-150</speedY>
   <yLimit>550</yLimit> 
   <transparency>true</transparency>
@@ -129,8 +117,6 @@
 	  <distance>200</distance>
 </chunk>
 </player_explosion>
-
-
 
 <fireball>
   <file>images/fireball.xcf</file>
@@ -171,8 +157,6 @@
 	</chunk>
 </gesomon_explosion>
 
-
-
 <digivolve>
   <file>images/digivolve.png</file>
   <startLoc x="450" y="350"/>
@@ -195,9 +179,6 @@
 
 <patamon>
   <file>images/patamon.png</file>
-<!--
-  <file>images/blank.png</file>
--->
   <startLoc x="600" y="480"/>
   <frames>3</frames>
   <frameInterval>250</frameInterval>

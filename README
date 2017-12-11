@@ -1,11 +1,16 @@
-
- - game play: You are Agumon (orange digimon). The goal is get to the right-most end of the world without dying. There are patrolling digimon who chase you if you get too close. You can shoot them with fireballs or jump over them. You can reset at any time, or play in invincible god mode (see heads up display for key commands)
+Game Play:
+	You are Agumon (the orange digimon). 
+	The goal is get to the right-most end of the world without dying. 
+	There are patrolling digimon who chase you if you get too close.
+	You can shoot them with fireballs or jump over them. 
+	You can reset at any time, or play in invincible god mode 
+	Heads up display has details of key commands
  
- - compilation:
-   command: make
-   dependencies: SDL 2.0, c++11
+Compilation:
+   Command: make
+   Dependencies: SDL 2.0, c++11
  
- - features:
+Features:
 	+ simple pursuit AI
 	+ collision detection for fireballs, player, enemies
 	+ chunking and frame-based explosions
@@ -16,23 +21,25 @@
 	+ object pooling (fireballs)
 	+ encapsulation of command key detection within Player class
 	+ image editing: Guassian blur, layer separation, drawing
-	+ no user-code memory leaks
+	+ no user-code memory leaks (SDL has some)
 	+ sound effects and music
 	+ god mode and reset option
 	+ HUD (heads up display) with timeout and redisplay options
 
-
- - OO patterns used:
+OO patterns used:
 	+ factory flyweight: frameFactory.cpp textureWrapper.cpp
 	+ strategy: collisionStrategy.cpp
 	+ template method: twoWayExplodingMultiSprite.cpp
 	+ object pool: bulletPool.cpp
 	+ singleton: ioMod.cpp gamedata.cpp frameFactory.cpp
 	+ composite reuse principle: twoWayExplodingMultiSprite.cpp explodingSprite.cpp
+
+Sources
+	Code was developed by Claire DeMars, building on a code base written
+	by instructors Brian and Chris Malloy for the course 
+	CPSC 6160 - "2D Game Design" at Clemson University, Spring 2017	
 	
- - sources:
-	The game was developed by Claire DeMars, building on a code base written by instructors Brian and Chris Malloy for the course CPSC 6160 - "2D Game Design" at Clemson University, Spring 2017.	
- 
+	Images, songs etc.
 	"hey digimon" song - https://www.youtube.com/watch?v=DYrlSjQyrzY
     backgrounds - http://dr-roflcopter.deviantart.com/art/Digimon-Adventure-Tri-Train-Wallpaper-523992542
     agumon - http://wikimon.net/Wikimon:Community_Portal_Archive/1

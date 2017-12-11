@@ -80,13 +80,14 @@ void Hud::update() {
 	} else {
 		is_in_god_mode = "OFF";
 	}
+	addLine("show hud - f1"); 
 	addLine("asdw - move"); 
 	addLine("j - jump");
 	addLine("space - shoot");
 	addLine("r - reset");
 	addLine("g - god mode  ("+is_in_god_mode+" now)");
 	addLine("q - quit");
-	addLine("m - music");
+	addLine("m - toggle music");
 	addLine("_________________");
 	addLine("Bullets: "+bulletCount+" active "+freeCount+" free");
 	addLine("Avg fps: " + std::to_string( clock.getAvgFps() ) );
